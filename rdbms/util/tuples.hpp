@@ -2,11 +2,11 @@
 #include<set>
 #include<string>
 #include<boost/variant.hpp>
+
 using namespace std;
+
 template<class T>
-class Tuples {
-
-
+class tuples {
     public:
         set<T> tuple1(T a);
 

@@ -1,3 +1,4 @@
+#include "tuples.hpp"
 #include <boost/variant.hpp>
 #include <iostream>
 #include <set>
@@ -6,128 +7,131 @@
 using namespace std;
 
 template<class T>
-class Tuples {
-  public:
-    set<T> tuple1(T a){
-      set<T> total_set;
+set<T> tuples::tuple1(T a){
+  set<T> total_set;
 
-      total_set.insert(a);
+  total_set.insert(a);
 
-      return total_set;
-    }
+  return total_set;
+}
 
-    set<set<T>> tuple2(T a,T b){
-      set<T> total_set;
-      set<set<T>>first_orderd;
+template<class T>
+set<set<T>> tuples::tuple2(T a,T b){
+  set<T> total_set;
+  set<set<T>>first_orderd;
 
-      total_set.insert(a);
-      total_set.insert(b);
+  total_set.insert(a);
+  total_set.insert(b);
 
-      first_orderd.insert(total_set);
+  first_orderd.insert(total_set);
 
-      return first_orderd;
-    }
+  return first_orderd;
+}
 
-    set<set<set<T>>> tuple3(T a,T b,T c){
-      set<T> total_set;
-      set<set<T>>first_orderd;
-      set<set<set<T>>>second_orderd;
+template<class T>
+set<set<set<T>>> tuples::tuple3(T a,T b,T c){
+  set<T> total_set;
+  set<set<T>>first_orderd;
+  set<set<set<T>>>second_orderd;
 
-      total_set.insert(a);
-      total_set.insert(b);
-      total_set.insert(c);
+  total_set.insert(a);
+  total_set.insert(b);
+  total_set.insert(c);
 
-      first_orderd.insert(total_set);
-      second_orderd.insert(first_orderd);
-      return second_orderd;
-    }
+  first_orderd.insert(total_set);
+  second_orderd.insert(first_orderd);
+  return second_orderd;
+}
 
-    set<set<set<set<T>>>> tuple4(T a,T b,T c,T d){
-      set<T> total_set;
-      set<set<T>>first_orderd;
-      set<set<set<T>>>second_orderd;
-      set<set<set<set<T>>>> third_orderd;
-      total_set.insert(a);
-      total_set.insert(b);
-      total_set.insert(c);
-      total_set.insert(d);
-      first_orderd.insert(total_set);
-      second_orderd.insert(first_orderd);
-      third_orderd.insert(second_orderd);
+template<class T>
+set<set<set<set<T>>>> tuples::tuple4(T a,T b,T c,T d){
+  set<T> total_set;
+  set<set<T>>first_orderd;
+  set<set<set<T>>>second_orderd;
+  set<set<set<set<T>>>> third_orderd;
+  total_set.insert(a);
+  total_set.insert(b);
+  total_set.insert(c);
+  total_set.insert(d);
+  first_orderd.insert(total_set);
+  second_orderd.insert(first_orderd);
+  third_orderd.insert(second_orderd);
 
-      return third_orderd;
-    }
+  return third_orderd;
+}
 
-    set<set<set<set<set<T>>>>> tuple5(T a,T b,T c,T d,T e){
-      set<T> total_set;
-      set<set<T>>first_orderd;
-      set<set<set<T>>>second_orderd;
-      set<set<set<set<T>>>> third_orderd;
-      set<set<set<set<set<T>>>>> fourth_orderd;
+template<class T>
+set<set<set<set<set<T>>>>> tuples::tuple5(T a,T b,T c,T d,T e){
+  set<T> total_set;
+  set<set<T>>first_orderd;
+  set<set<set<T>>>second_orderd;
+  set<set<set<set<T>>>> third_orderd;
+  set<set<set<set<set<T>>>>> fourth_orderd;
 
-      total_set.insert(a);
-      total_set.insert(b);
-      total_set.insert(c);
-      total_set.insert(d);
-      total_set.insert(e);
+  total_set.insert(a);
+  total_set.insert(b);
+  total_set.insert(c);
+  total_set.insert(d);
+  total_set.insert(e);
 
-      first_orderd.insert(total_set);
-      second_orderd.insert(first_orderd);
-      third_orderd.insert(second_orderd);
-      fourth_orderd.insert(third_orderd);
+  first_orderd.insert(total_set);
+  second_orderd.insert(first_orderd);
+  third_orderd.insert(second_orderd);
+  fourth_orderd.insert(third_orderd);
 
-      return fourth_orderd;
-    }
+  return fourth_orderd;
+}
 
-    set<set<set<set<set<set<T>>>>>> tuple6(T a,T b,T c,T d,T e,T f){
-      set<T> total_set;
-      set<set<T>>first_orderd;
-      set<set<set<T>>>second_orderd;
-      set<set<set<set<T>>>> third_orderd;
-      set<set<set<set<set<T>>>>> fourth_orderd;
-      set<set<set<set<set<set<T>>>>>> fifth_orderd;
+template<class T>
+set<set<set<set<set<set<T>>>>>> tuples::tuple6(T a,T b,T c,T d,T e,T f){
+  set<T> total_set;
+  set<set<T>>first_orderd;
+  set<set<set<T>>>second_orderd;
+  set<set<set<set<T>>>> third_orderd;
+  set<set<set<set<set<T>>>>> fourth_orderd;
+  set<set<set<set<set<set<T>>>>>> fifth_orderd;
 
-      total_set.insert(a);
-      total_set.insert(b);
-      total_set.insert(c);
-      total_set.insert(d);
-      total_set.insert(e);
-      total_set.insert(f);
+  total_set.insert(a);
+  total_set.insert(b);
+  total_set.insert(c);
+  total_set.insert(d);
+  total_set.insert(e);
+  total_set.insert(f);
 
-      first_orderd.insert(total_set);
-      second_orderd.insert(first_orderd);
-      third_orderd.insert(second_orderd);
-      fourth_orderd.insert(third_orderd);
-      fifth_orderd.insert(fourth_orderd);
+  first_orderd.insert(total_set);
+  second_orderd.insert(first_orderd);
+  third_orderd.insert(second_orderd);
+  fourth_orderd.insert(third_orderd);
+  fifth_orderd.insert(fourth_orderd);
 
-      return fifth_orderd;
-    }
+  return fifth_orderd;
+}
 
-    set<set<set<set<set<set<set<T>>>>>>> tuple7(T a,T b,T c,T d,T e,T f,T g){
-      set<T> total_set;
-      set<set<T>>first_orderd;
-      set<set<set<T>>>second_orderd;
-      set<set<set<set<T>>>> third_orderd;
-      set<set<set<set<set<T>>>>> fourth_orderd;
-      set<set<set<set<set<set<T>>>>>> fifth_orderd;
-      set<set<set<set<set<set<set<T>>>>>>> six_orderd ;
-      total_set.insert(a);
-      total_set.insert(b);
-      total_set.insert(c);
-      total_set.insert(d);
-      total_set.insert(e);
-      total_set.insert(f);
-      total_set.insert(g);
-      first_orderd.insert(total_set);
-      second_orderd.insert(first_orderd);
-      third_orderd.insert(second_orderd);
-      fourth_orderd.insert(third_orderd);
-      fifth_orderd.insert(fourth_orderd);
-      six_orderd.insert(fifth_orderd);
+template<class T>
+set<set<set<set<set<set<set<T>>>>>>> tuples::tuple7(T a,T b,T c,T d,T e,T f,T g){
+  set<T> total_set;
+  set<set<T>>first_orderd;
+  set<set<set<T>>>second_orderd;
+  set<set<set<set<T>>>> third_orderd;
+  set<set<set<set<set<T>>>>> fourth_orderd;
+  set<set<set<set<set<set<T>>>>>> fifth_orderd;
+  set<set<set<set<set<set<set<T>>>>>>> six_orderd ;
+  total_set.insert(a);
+  total_set.insert(b);
+  total_set.insert(c);
+  total_set.insert(d);
+  total_set.insert(e);
+  total_set.insert(f);
+  total_set.insert(g);
+  first_orderd.insert(total_set);
+  second_orderd.insert(first_orderd);
+  third_orderd.insert(second_orderd);
+  fourth_orderd.insert(third_orderd);
+  fifth_orderd.insert(fourth_orderd);
+  six_orderd.insert(fifth_orderd);
 
-      return six_orderd;
-    }
-};
+  return six_orderd;
+}
 
 int main(){
   int count;
@@ -140,7 +144,7 @@ int main(){
   set<set<set<set<set<set<set<boost::variant<double,std::string,int>>>>>>>> result7;
   boost::variant<double,std::string,int> cell;
   std::vector<boost::variant<double,std::string,int>> h;
-  Tuples<boost::variant<double,std::string,int>>  Tu ;
+  tuples<boost::variant<double,std::string,int>>  Tu ;
 
   std::cout << "how many: " << '\n';
   std::cin >> count;
