@@ -3,14 +3,27 @@
 #include <iostream>
 #include <set>
 
-std::string get_table_name();
+class table
+{
+    private:
+        /* data */
+        rSchema tableSpec;  // relational schema specifications of a table
+        std::set<tuple> rows;    // container for the tuples of a table
 
-tuple get_attributes();
+    public:
+        table();
+        
+        table(rSchema spec);
+        
+        std::string get_table_name();
 
-std::set<cell> get_column(std::string attribName);
+        tuple get_attributes();
 
-std::set<tuple> get_rows();
+        std::set<cell> get_column(std::string attribName);
 
-void add_row(tuple rowTuple);
+        std::set<tuple> get_rows();
 
-void remove_row(tuple rowTuple);
+        void add_row(tuple rowTuple);
+
+        void remove_row(tuple rowTuple);     
+};

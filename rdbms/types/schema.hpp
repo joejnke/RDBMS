@@ -1,12 +1,22 @@
-#include "table.hpp"
 #include "rSchema.hpp"
+#include "table.hpp"
 #include "../util/tuple.hpp"
 #include <iostream>
 
-std::set<rSchema> get_rSchemaSet();
+class schema {
+    private:
+        std::set<rSchema> rSchemaSet;
 
-std::string toString();
+    public:
+        schema ();
 
-void add_rSchema(rSchema rs);
+        schema(std::set<rSchema> rsSet);
 
-void remove_rSchema(std::string name);
+        void add_rSchema(rSchema rs);
+
+        void remove_rSchema(std::string name);
+
+        std::set<rSchema> get_rSchemaSet();
+
+        std::string toString();
+};
