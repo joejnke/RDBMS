@@ -1,11 +1,11 @@
 #include "rSchema.hpp"
-#include "../util/tuple.hpp"
+#include "../util/tuples.hpp"
 #include <iostream>
 
 rSchema::rSchema() {
 }
 
-rSchema::rSchema(std::string rsName, tuple rsAttribs) {
+rSchema::rSchema(std::string rsName, tuples rsAttribs) {
     this->name = rsName;
     this->attributes = rsAttribs;
 }
