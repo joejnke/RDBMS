@@ -19,7 +19,7 @@ std::string table::get_table_name() {
     return this->tableSpec.get_name();
 }
 
-tuple table::get_attributes() {
+tuples table::get_attributes() {
     return this->tableSpec.get_attributes();
 }
 
@@ -27,7 +27,7 @@ std::set<cell> table::get_column(std::string attribName) {
     //TODO;
 }
 
-std::set<tuple> table::get_rows() {
+std::set<tuples> table::get_rows() {
     return this->rows;
 }
 

@@ -8,7 +8,7 @@ class table
     private:
         /* data */
         rSchema tableSpec;  // relational schema specifications of a table
-        std::set<tuple> rows;    // container for the tuples of a table
+        std::set<tuples> rows;    // container for the tuples of a table
 
     public:
         table();
@@ -21,7 +21,7 @@ class table
 
         std::set<cell> get_column(std::string attribName);
 
-        std::set<tuple> get_rows();
+        std::set<tuples> get_rows();
 
         void add_row(tuples rowTuple);
 

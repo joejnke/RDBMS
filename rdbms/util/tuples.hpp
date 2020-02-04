@@ -4,7 +4,7 @@
 #include<boost/variant.hpp>
 using namespace std;
 template<class T>
-class Tuples {
+class tuples {
 
 
     public:

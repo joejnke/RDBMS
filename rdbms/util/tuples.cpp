@@ -6,7 +6,7 @@
 using namespace std;
 
 template<class T>
-class Tuples {
+class tuples {
   public:
     set<T> tuple1(T a){
       set<T> total_set;
@@ -140,7 +140,7 @@ int main(){
   set<set<set<set<set<set<set<boost::variant<double,std::string,int>>>>>>>> result7;
   boost::variant<double,std::string,int> cell;
   std::vector<boost::variant<double,std::string,int>> h;
-  Tuples<boost::variant<double,std::string,int>>  Tu ;
+  tuples<boost::variant<double,std::string,int>>  Tu ;
 
   std::cout << "how many: " << '\n';
   std::cin >> count;
