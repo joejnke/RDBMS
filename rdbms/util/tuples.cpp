@@ -1,20 +1,22 @@
+#include "tuples.hpp"
+#include<boost/variant.hpp>
 #include<iostream>
 #include<set>
 #include<string>
-#include<boost/variant.hpp>
+
+
 using namespace std;
-template<class T>
-class Tuples{
-public:
-set<T> tuple1(T a){
+
+
+set<T> tuples::tuple1(T a){
 set<T> total_set;
 
 total_set.insert(a);
 
 return total_set;
 }
-public:
-set<set<T>> tuple2(T a,T b){
+
+set<set<T>> tuples::tuple2(T a,T b){
 set<T> total_set;
 set<set<T>>first_orderd;
 
@@ -27,8 +29,8 @@ first_orderd.insert(total_set);
 
 return first_orderd;
 }
-public:
-set<set<set<T>>> tuple3(T a,T b,T c){
+
+set<set<set<T>>> tuples::tuple3(T a,T b,T c){
 set<T> total_set;
 set<set<T>>first_orderd;
 set<set<set<T>>>second_orderd;
@@ -42,8 +44,8 @@ second_orderd.insert(first_orderd);
 return second_orderd;
 
 }
-public:
-set<set<set<set<T>>>> tuple4(T a,T b,T c,T d){
+
+set<set<set<set<T>>>> tuples::tuple4(T a,T b,T c,T d){
 set<T> total_set;
 set<set<T>>first_orderd;
 set<set<set<T>>>second_orderd;
@@ -58,8 +60,8 @@ third_orderd.insert(second_orderd);
 
 return third_orderd;
 }
-public:
-set<set<set<set<set<T>>>>> tuple5(T a,T b,T c,T d,T e){
+
+set<set<set<set<set<T>>>>> tuples::tuple5(T a,T b,T c,T d,T e){
 set<T> total_set;
 set<set<T>>first_orderd;
 set<set<set<T>>>second_orderd;
@@ -80,8 +82,8 @@ fourth_orderd.insert(third_orderd);
 return fourth_orderd;
 
 }
-public:
-set<set<set<set<set<set<T>>>>>> tuple6(T a,T b,T c,T d,T e,T f){
+
+set<set<set<set<set<set<T>>>>>> tuples::tuple6(T a,T b,T c,T d,T e,T f){
 set<T> total_set;
 set<set<T>>first_orderd;
 set<set<set<T>>>second_orderd;
@@ -105,8 +107,8 @@ fifth_orderd.insert(fourth_orderd);
 
 return fifth_orderd;
 }
-public:
-set<set<set<set<set<set<set<T>>>>>>> tuple7(T a,T b,T c,T d,T e,T f,T g){
+
+set<set<set<set<set<set<set<T>>>>>>> tuples::tuple7(T a,T b,T c,T d,T e,T f,T g){
 set<T> total_set;
 set<set<T>>first_orderd;
 set<set<set<T>>>second_orderd;
@@ -131,7 +133,7 @@ six_orderd.insert(fifth_orderd);
 return six_orderd;
 }
 
- };
+
 
 int main(){
 int count;
@@ -144,7 +146,7 @@ set<set<set<set<set<set<boost::variant<double,std::string,int>>>>>>> result6;
 set<set<set<set<set<set<set<boost::variant<double,std::string,int>>>>>>>> result7;
 boost::variant<double,std::string,int> cell;
 std::vector<boost::variant<double,std::string,int>> h;
-Tuples<boost::variant<double,std::string,int>>  Tu ;
+tuples<boost::variant<double,std::string,int>>  Tu ;
 
 std::cout << "how many: " << '\n';
 std::cin >> count;
@@ -279,4 +281,3 @@ cout<<")"<<endl;
 }
 return 0;
 }
-
