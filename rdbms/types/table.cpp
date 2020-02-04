@@ -1,9 +1,8 @@
+#include "cell.hpp"
+#include "rSchema.hpp"
+#include "../util/tuple.hpp"
 #include <iostream>
 #include <set>
-#include <cell.hpp>
-#include <rSchema.hpp>
-#include <../util/tuple.hpp>
-
 // using namespace std;
 
 class table

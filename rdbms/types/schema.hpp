@@ -1,11 +1,7 @@
+#include "table.hpp"
+#include "rSchema.hpp"
+#include "../util/tuple.hpp"
 #include <iostream>
-#include <table.hpp>
-#include <rSchema.hpp>
-#include <../util/tuple.hpp>
-
-schema();
-
-schema(std::set<rSchema> rsSet);
 
 std::set<rSchema> get_rSchemaSet();
 

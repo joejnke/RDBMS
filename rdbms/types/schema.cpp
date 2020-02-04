@@ -1,7 +1,7 @@
+#include "table.hpp"
+#include "rSchema.hpp"
+#include "../util/tuple.hpp"
 #include <iostream>
-#include <table.hpp>
-#include <rSchema.hpp>
-#include <../util/tuple.hpp>
 
 class schema {
     private:
