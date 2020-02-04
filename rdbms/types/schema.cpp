@@ -1,39 +1,33 @@
-#include "table.hpp"
+#include "schema.hpp"
 #include "rSchema.hpp"
+#include "table.hpp"
 #include "../util/tuple.hpp"
 #include <iostream>
 
-class schema {
-    private:
-        std::set<rSchema> rSchemaSet;
+schema::schema () {  
+}
 
-    public:
-        schema () {
-            
-        }
+schema::schema(std::set<rSchema> rsSet) {
+    this->rSchemaSet = rsSet;
+}
 
-        schema(std::set<rSchema> rsSet) {
-            rSchemaSet = rsSet;
-        }
+void schema::add_rSchema(rSchema rs) {
+    this->rSchemaSet.insert(rs);            
+}
 
-        void add_rSchema(rSchema rs) {
-            rSchemaSet.insert(rs);            
-        }
+void schema::remove_rSchema(std::string name) {
+    //TODO
+}
 
-        void remove_rSchema(std::string name) {
-            //TODO
-        }
+std::set<rSchema> schema::get_rSchemaSet() {
+    return this->rSchemaSet;
+}
 
-        std::set<rSchema> get_rSchemaSet() {
-            return rSchemaSet;
-        }
-
-        std::string toString() {
-            std::string info;
-            for (auto rs : rSchemaSet) {
-                info += rs.get_name() + "\n" 
-                        + rs.get_attributes().toString() + "\n\n";
-            }
-            return info;
-        }        
-};
+std::string schema::toString() {
+    std::string info;
+    for (auto rs : schema::get_rSchemaSet()) {
+        info += rs.get_name() + "\n" 
+                + rs.get_attributes().toString() + "\n\n";
+    }
+    return info;
+}
