@@ -7,6 +7,9 @@
 // using namespace std;
 
 // constructor
+table::table() {
+}
+
 table::table(rSchema spec) {
     this->tableSpec = spec;
 };

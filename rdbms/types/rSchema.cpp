@@ -2,6 +2,9 @@
 #include "../util/tuple.hpp"
 #include <iostream>
 
+rSchema::rSchema() {
+}
+
 rSchema::rSchema(std::string rsName, tuple rsAttribs) {
     this->name = rsName;
     this->attributes = rsAttribs;

@@ -11,6 +11,8 @@ class table
         std::set<tuple> rows;    // container for the tuples of a table
 
     public:
+        table();
+        
         table(rSchema spec);
         
         std::string get_table_name();

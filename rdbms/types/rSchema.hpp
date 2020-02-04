@@ -7,6 +7,8 @@ class rSchema {
         tuple attributes;
 
     public:
+        rSchema();
+        
         rSchema(std::string rsName, tuple rsAttribs);
 
         std::string get_name();
