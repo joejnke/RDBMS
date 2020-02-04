@@ -4,14 +4,14 @@
 class rSchema {
     private:
         std::string name;
-        tuple attributes;
+        tuples attributes;
 
     public:
         rSchema();
-        
-        rSchema(std::string rsName, tuple rsAttribs);
+
+        rSchema(std::string rsName, tuples rsAttribs);
 
         std::string get_name();
-        
-        tuple get_attributes();
+
+        tuples get_attributes();
 };
