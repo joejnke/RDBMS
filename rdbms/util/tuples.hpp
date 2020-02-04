@@ -1,10 +1,12 @@
+#include<boost/variant.hpp>
 #include<iostream>
 #include<set>
 #include<string>
-#include<boost/variant.hpp>
+
 using namespace std;
+
 template<class T>
-class Tuples {
+class tuples {
 
 
     public:
