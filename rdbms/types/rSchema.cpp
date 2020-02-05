@@ -14,6 +14,6 @@ std::string rSchema::get_name() {
     return this->name;
 }
 
-tuple rSchema::get_attributes() {
+tuples rSchema::get_attributes() {
     return this->attributes;
 }
