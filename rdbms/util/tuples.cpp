@@ -8,10 +8,10 @@ using namespace std;
 
 // class T is assumed to be a typedef for boost::variant<double,std::string,int which we call it cell
 template<class T>
-tuples::tuples() {}
+tuples<T>::tuples() {}
 
 template<class T>
-tuples::tuples(T elem1, T... elems) { // check if variadic function syntax is correct
+tuples<T>::tuples(T elem1, T... elems) { // check if variadic function syntax is correct
   if (elems.length == 0) {
     this->elements.insert(set<T> (elem1));
   }

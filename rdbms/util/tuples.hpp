@@ -11,7 +11,7 @@ class tuples {
         set<set<T>> elements;
     public:
         tuples();
-        tuples(T elm1, T... elms);
+        tuples(T elem1, T... elems);
         // get type of every element
         // toString the tuple
 };
