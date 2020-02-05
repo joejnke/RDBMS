@@ -17,6 +17,8 @@ class operations{
 
         std::set<tuples> projection();
 
-        std::set<tuples> selection();        
+        std::set<tuples> selection();
+
+        std::set<tuples> natural_join();        
 
 };
