@@ -1,4 +1,5 @@
 #include<boost/variant.hpp>
+#include <cstdarg>
 #include<iostream>
 #include<set>
 #include<string>
@@ -11,7 +12,7 @@ class tuples {
         set<set<T>> elements;
     public:
         tuples();
-        tuples(T elem1, T... elems);
+        tuples(T elem1, ...);
         // get type of every element
         // toString the tuple
 };
