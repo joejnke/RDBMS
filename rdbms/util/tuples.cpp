@@ -11,7 +11,7 @@ using namespace std;
 template<class T>
 tuples<T>::tuples() {}
 
-template<class T>
+template<class T                                                                                                                                                                                                                                                            >
 tuples<T>::tuples(T argSize, ...) { // check if variadic function syntax is correct
   va_list elems;
   va_start (elems, argSize); // elems hold all arguments after elem1
