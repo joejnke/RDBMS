@@ -12,7 +12,7 @@ class tuples {
         set<set<T>> elements;
     public:
         tuples();
-        tuples(T elem1, ...);
+        tuples(T argSize, ...);
         // get type of every element
         // toString the tuple
 };

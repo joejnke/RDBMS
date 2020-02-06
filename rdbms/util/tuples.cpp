@@ -12,19 +12,23 @@ template<class T>
 tuples<T>::tuples() {}
 
 template<class T>
-tuples<T>::tuples(T elem1, ...) { // check if variadic function syntax is correct
-  va_lsit elems;
-  if (elems.length == 0) {
-    this->elements.insert(set<T> (elem1));
+tuples<T>::tuples(T argSize, ...) { // check if variadic function syntax is correct
+  va_list elems;
+  va_start (elems, argSize); // elems hold all arguments after elem1
+  
+  if (argSize == 1) {
+    this->elements.insert(set<T> (va_arg(elems, T)));
   }
 
-  else if (elems.length == 1) {
-    this->elements.insert(set<T> (elem1));
-    this->elements.insert(set<T> (elem1, va_arg(elems, T)));
+  else if (argSize == 2) {
+    T firstItem = va_arg(elems, T);
+    this->elements.insert(set<T> (firstItem));
+    this->elements.insert(set<T> (firstItem, va_arg(elems, T)));
   }
 
   else {
-    this->elements.insert(set<T> (elem1));
-    this->elements.insert(set<T> (set<T> (elem1), tuples<T> (va_arg(elems, T), va_arg(elems, T)))); //needs to check if it violet set theory
+    T firstItem = va_arg(elems, T);
+    this->elements.insert(set<T> (firstItem));
+    this->elements.insert(set<T> (set<T> (firstItem), tuples<T> (argSize - 1, elems... ).elements))); //needs to check if it violet set theory
   }
 }
