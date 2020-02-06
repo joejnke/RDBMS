@@ -130,5 +130,11 @@ std::string test_get() {
 };
 
 int main() {
-
+    cout<<"\n<<<<<<<<<<<<<<< Test tuples class >>>>>>>>>>>>>>>>\n";
+    cout<< test_default_constructor();
+    cout<< test_parametrized_constructor();
+    cout<< test_isEqual();
+    cout<< test_get_elements();
+    cout<< test_get();
+    cout<<"\n<<<<<<<<<<< end of tuples class test >>>>>>>>>>>>>\n";
 }
