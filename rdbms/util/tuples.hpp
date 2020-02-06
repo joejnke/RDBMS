@@ -5,20 +5,16 @@
 
 using namespace std;
 
-template<class T>
 class tuples {
+    static bool isEqual(tuples tup1, tuples tup2);
+
+    private:
+        int num_of_elements;
+        set<set<int>> elements;
+
     public:
-        set<T> tuple1(T a);
-
-        set<set<T>> tuple2(T a,T b);
-
-        set<set<set<T>>> tuple3(T a,T b,T c);
-
-        set<set<set<set<T>>>> tuple4(T a,T b,T c,T d);
-
-        set<set<set<set<set<T>>>>> tuple5(T a,T b,T c,T d,T e);
-
-        set<set<set<set<set<set<T>>>>>> tuple6(T a,T b,T c,T d,T e,T f);
-
-        set<set<set<set<set<set<set<T>>>>>>> tuple7(T a,T b,T c,T d,T e,T f,T g);
+        tuples();
+        tuples(int elm1, int elm2);
+        set<set<int>> get_elements();
+        int get(int index);
 };
