@@ -10,8 +10,8 @@ using namespace std;
 int testCount = 0;
 int passedTestCount = 0;
 std::string testResult;
-cell one = 1;
-cell two = 2;
+cell elmOne = 1;
+cell elmTwo = "Ethiopia";
 
 
 std::string test_default_constructor() {
@@ -31,7 +31,7 @@ std::string test_default_constructor() {
 
 std::string test_parametrized_constructor() {
     testCount++;
-    tuples testTup (1, 2);
+    tuples testTup (1, "Ethiopia");
     testResult = ("\nTest tuples(cell elm1, cell elm2): ");
     if (testTup.get_elements().size() != 0) {
         testResult += "\nPass ";
@@ -46,8 +46,8 @@ std::string test_parametrized_constructor() {
 
 std::string test_isEqual() {
     testCount++;
-    tuples testTup (1, 2);
-    tuples testDistinctElm (1, 2);
+    tuples testTup (1, "Ethiopia");
+    tuples testDistinctElm (1, "Ethiopia");
     testResult = ("\nTest isEqual(): ");
     if (tuples::isEqual(testDistinctElm, testTup)) {
         testResult += "\nPass ";
@@ -63,9 +63,9 @@ std::string test_isEqual() {
 std::string test_get_elements() {
     testCount +=2;  // for the two tests
     set<set<cell>> sameElm {{1}, {1, 1}};
-    set<set<cell>> distinctElm {{1}, {1, 2}};    
+    set<set<cell>> distinctElm {{1}, {1, "Ethiopia"}};    
     tuples testSameElm (1, 1);
-    tuples testDistinctElm (1, 2);
+    tuples testDistinctElm (1, "Ethiopia");
 
     testResult = ("\nTest get_elements(): ");
     if (testSameElm.get_elements() == sameElm) {
@@ -96,7 +96,7 @@ std::string test_get() {
     //     testResult += "\nPass for \"index out of bound\", ";        
     //     passedTestCount++;
     // }    
-    if (testSameElm.get(0) == one) {
+    if (testSameElm.get(0) == elmOne) {
         testResult += "\nPass for \"same elements\" of index 0";        
         passedTestCount++;
     }
@@ -104,7 +104,7 @@ std::string test_get() {
         testResult += "\nFail for \"same elements\" of index 0";
     }  
 
-    if (testSameElm.get(1) == one) {
+    if (testSameElm.get(1) == elmOne) {
         testResult += "\nPass for \"same elements\" of index 1";
         passedTestCount++;        
     }      
@@ -112,8 +112,8 @@ std::string test_get() {
         testResult += "\nFail for \"same elements\" of index 1";
     }  
 
-    tuples testDistinctElmp (1, 2);
-    if (testDistinctElmp.get(0) == one) {
+    tuples testDistinctElmp (1, "Ethiopia");
+    if (testDistinctElmp.get(0) == elmOne) {
         testResult += "\nPass for \"distinct elements\" of index 0";        
         passedTestCount++;
     }
@@ -121,7 +121,7 @@ std::string test_get() {
         testResult += "\nFail for \"distinct elements\" of index 0";
     }  
 
-    if (testDistinctElmp.get(1) == two) {
+    if (testDistinctElmp.get(1) == elmTwo) {
         testResult += "\nPass for \"distinct elements\" of index 1";
         passedTestCount++;        
     }
