@@ -6,19 +6,16 @@
 #include <set>
 
 class operations{
-    private:
-        std::set<tuples> relation;
-    public:
-        std::set<tuples> union(std::set<tuples>R1 ,std::set<tuples> R2);
-
-        std::set<tuples> intersection(std::set<tuples> R1 ,std::set<tuples> R2);
-
-        std::set<tuples> difference(std::set<tuples> R1 ,std::set<tuples> R2);
-
-        std::set<tuples> projection(std::set<tuples> R1);
-
-        std::set<tuples> selection(std::set<tuples> R1);
-
-        std::set<tuples> natural_join(std::set<tuples> R1 ,std::set<tuples> R2);        
+        static std::set<table> relUnion(std::set<table>R1 ,std::set<table> R2);
+      
+        static std::set<table> intersection(std::set<table> R1 ,std::set<table> R2);
+      
+        static std::set<table> difference(std::set<table> R1 ,std::set<table> R2);
+      
+        static std::set<table> projection(std::set<table> R1);
+      
+        static std::set<table> selection(std::set<table> R1);
+      
+        static std::set<table> natural_join(std::set<table> R1 ,std::set<table> R2);        
 
 };
