@@ -57,7 +57,7 @@ std::string test_isEqual() {
 };
 
 std::string test_get_elements() {
-    testCount++;
+    testCount +=2;  // for the two tests
     set<set<int>> sameElm {{1}, {1, 1}};
     set<set<int>> distinctElm {{1}, {1, 2}};    
     tuples testSameElm (1, 1);
@@ -84,7 +84,7 @@ std::string test_get_elements() {
 };
 
 std::string test_get() {
-    testCount++;
+    testCount +=4;  // for the four tests
     tuples testSameElm (1, 1);
     testResult = ("\nTest get(): ");
     // test for out of bound: use exception handling
@@ -136,5 +136,6 @@ int main() {
     cout<< test_isEqual();
     cout<< test_get_elements();
     cout<< test_get();
+    cout<<"\n\nPassed " << passedTestCount << "/" << testCount<<" tests";
     cout<<"\n<<<<<<<<<<< end of tuples class test >>>>>>>>>>>>>\n";
 }
