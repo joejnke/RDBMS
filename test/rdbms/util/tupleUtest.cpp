@@ -1,8 +1,9 @@
-#include"tuples.hpp"
-#include<boost/variant.hpp>
-#include<iostream>
-#include<set>
-#include<string>
+#include "cell.hpp"
+#include "tuples.hpp"
+#include <boost/variant.hpp>
+#include <iostream>
+#include <set>
+#include <string>
 
 using namespace std;
 
@@ -28,7 +29,7 @@ std::string test_default_constructor() {
 std::string test_parametrized_constructor() {
     testCount++;
     tuples testTup (1, 2);
-    testResult = ("\nTest tuples(int elm1, int elm2): ");
+    testResult = ("\nTest tuples(cell elm1, cell elm2): ");
     if (testTup.get_elements().size() != 0) {
         testResult += "\nPass ";
         passedTestCount++;
@@ -58,8 +59,8 @@ std::string test_isEqual() {
 
 std::string test_get_elements() {
     testCount +=2;  // for the two tests
-    set<set<int>> sameElm {{1}, {1, 1}};
-    set<set<int>> distinctElm {{1}, {1, 2}};    
+    set<set<cell>> sameElm {{1}, {1, 1}};
+    set<set<cell>> distinctElm {{1}, {1, 2}};    
     tuples testSameElm (1, 1);
     tuples testDistinctElm (1, 2);
 
