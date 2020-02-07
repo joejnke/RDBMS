@@ -1,7 +1,7 @@
 #include "cell.hpp"
 #include "rSchema.hpp"
 #include "table.hpp"
-#include "../util/tuples.hpp"
+#include "tuples.hpp"
 #include <iostream>
 #include <set>
 
