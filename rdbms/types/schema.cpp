@@ -7,7 +7,7 @@
 schema::schema () {
 }
 
-schema::schema(std::set<rSchema> rsSet) {
+schema::schema(std::set<rSchema, rSchemaComparator> rsSet) {
     this->rSchemaSet = rsSet;
 }
 
@@ -19,7 +19,7 @@ void schema::remove_rSchema(std::string name) {
     //TODO
 }
 
-std::set<rSchema> schema::get_rSchemaSet() {
+std::set<rSchema, rSchemaComparator> schema::get_rSchemaSet() {
     return this->rSchemaSet;
 }
 
