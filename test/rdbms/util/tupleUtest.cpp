@@ -10,6 +10,9 @@ using namespace std;
 int testCount = 0;
 int passedTestCount = 0;
 std::string testResult;
+cell one = 1;
+cell two = 2;
+
 
 std::string test_default_constructor() {
     testCount++;
@@ -93,7 +96,7 @@ std::string test_get() {
     //     testResult += "\nPass for \"index out of bound\", ";        
     //     passedTestCount++;
     // }    
-    if (testSameElm.get(0) == 1) {
+    if (testSameElm.get(0) == one) {
         testResult += "\nPass for \"same elements\" of index 0";        
         passedTestCount++;
     }
@@ -101,7 +104,7 @@ std::string test_get() {
         testResult += "\nFail for \"same elements\" of index 0";
     }  
 
-    if (testSameElm.get(1) == 1) {
+    if (testSameElm.get(1) == one) {
         testResult += "\nPass for \"same elements\" of index 1";
         passedTestCount++;        
     }      
@@ -110,7 +113,7 @@ std::string test_get() {
     }  
 
     tuples testDistinctElmp (1, 2);
-    if (testDistinctElmp.get(0) == 1) {
+    if (testDistinctElmp.get(0) == one) {
         testResult += "\nPass for \"distinct elements\" of index 0";        
         passedTestCount++;
     }
@@ -118,7 +121,7 @@ std::string test_get() {
         testResult += "\nFail for \"distinct elements\" of index 0";
     }  
 
-    if (testDistinctElmp.get(1) == 2) {
+    if (testDistinctElmp.get(1) == two) {
         testResult += "\nPass for \"distinct elements\" of index 1";
         passedTestCount++;        
     }
