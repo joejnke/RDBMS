@@ -60,6 +60,18 @@ cell tuples::get(int index) {
   }
 }
 
+std::string tuples::toString() {
+  set<set<cell>>::iterator itr;
+  std::string info;
+
+  // for (int i = 0; i < this->elements.size(); i++) {
+  //   info += std::to_string(this->get(i));
+  // }
+
+  return info;
+}
+
+
 bool tuples::isEqual(tuples tup1, tuples tup2) {
   return tup1.get_elements() == tup2.get_elements();
 }

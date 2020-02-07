@@ -17,4 +17,5 @@ class tuples {
         tuples(cell elm1, cell elm2);
         set<set<cell>> get_elements();
         cell get(int index);
+        std::string toString();
 };
