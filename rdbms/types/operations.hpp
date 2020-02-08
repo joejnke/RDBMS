@@ -4,21 +4,26 @@
 #include "../util/tuples.hpp"
 #include <iostream>
 #include <set>
-
+#include <algorithm>
 class operations{
-    private:
-        std::set<tuples> relation;
+/*    private:
+        table runion;
+        table intersection;
+        table difference;
+        table projection;
+        table selection;
+        table natural_join;*/
     public:
-        std::set<tuples> union(std::set<tuples>R1 ,std::set<tuples> R2);
+        table runion (table R1 ,table R2);
 
-        std::set<tuples> intersection(std::set<tuples> R1 ,std::set<tuples> R2);
+        table intersection(table R1 ,table R2);
 
-        std::set<tuples> difference(std::set<tuples> R1 ,std::set<tuples> R2);
+        table difference(table R1 ,table R2);
 
-        std::set<tuples> projection(std::set<tuples> R1);
+        table projection(table R1);
 
-        std::set<tuples> selection(std::set<tuples> R1);
+        table selection(table R1);
 
-        std::set<tuples> natural_join(std::set<tuples> R1 ,std::set<tuples> R2);        
+        table natural_join(table R1 ,table R2);        
 
 };
