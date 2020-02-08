@@ -1,8 +1,8 @@
 #include "cell.hpp"
+#include "operations.hpp"
 #include "rSchema.hpp"
 #include "table.hpp"
-#include "operations.hpp"
-#include "../util/tuples.hpp"
+#include "tuples.hpp"
 #include <iostream>
 #include <set>
 #include <algorithm>

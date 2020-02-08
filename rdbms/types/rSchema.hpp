@@ -1,4 +1,4 @@
-#include "../util/tuples.hpp"
+#include "tuples.hpp"
 #include <iostream>
 
 class rSchema {
@@ -14,4 +14,10 @@ class rSchema {
         std::string get_name();
 
         tuples get_attributes();
+};
+
+struct rSchemaComparator {
+    bool operator()(rSchema lhs, rSchema rhs) {
+        return lhs.get_name() < rhs.get_name();
+    }
 };
