@@ -9,7 +9,8 @@ It is a data base managment system that store structured data using tables(rows 
 ## Tables as Relations
 
 A relational data model using n-ary relation to store data
-R = $\ \bigg \{(a1,...,an) \bigg | a1 \in A1 ,a2 \in A2, ...,an \in An \bigg \}$
+
+    R = $\ \bigg \{(a1,...,an) \bigg | a1 \in A1 ,a2 \in A2, ...,an \in An \bigg \}$
 
  ##### where 
  
@@ -54,7 +55,7 @@ We have six operations on the tables
 
 It is denoted by:
 
-R1 U R2 = $\ \bigg \{(a1,...,an) \bigg | (a1,..,an) \in R1 \vee (a1,..,an) \in R1 \bigg \}$
+    R1 U R2 = $\ \bigg \{(a1,...,an) \bigg | (a1,..,an) \in R1 \vee (a1,..,an) \in R1 \bigg \}$
 
 > Note both the tables must have the same relational schema ie. Attributes must match .
 
@@ -62,9 +63,10 @@ R1 U R2 = $\ \bigg \{(a1,...,an) \bigg | (a1,..,an) \in R1 \vee (a1,..,an) \in R
 
 2. Intersection -> It is a relation between two tables where the resulting table will contain information duplicated in both tables.
 
-It is denoted by
+It is denoted by:
 
-R1 n R2 = $\ \bigg \{(a1,...,an) \bigg | (a1,..,an) \in R1 \wedge (a1,..,an) \in R1 \bigg \}$
+
+    R1 n R2 = $\ \bigg \{(a1,...,an) \bigg | (a1,..,an) \in R1 \wedge (a1,..,an) \in R1 \bigg \}$
 
   
 
@@ -74,11 +76,9 @@ R1 n R2 = $\ \bigg \{(a1,...,an) \bigg | (a1,..,an) \in R1 \wedge (a1,..,an) \in
 
 3. Difference -> It is a relation between two tables where the resulting table will contain the information of the first table with out information in second table.
 
-It is denoted by
+It is denoted by:
 
-  
-
-R1 - R2 = $\ \bigg \{(a1,...,an) \bigg | (a1,..,an) \in R1 \wedge \neg (a1,..,an) \in R1 \bigg \}$
+    R1 - R2 = $\ \bigg \{(a1,...,an) \bigg | (a1,..,an) \in R1 \wedge \neg (a1,..,an) \in R1 \bigg \}$
 
 >Note both the tables must have the same relational schema ie. Attributes must match .
 
