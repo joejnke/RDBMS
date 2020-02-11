@@ -1,3 +1,6 @@
+#ifndef TUPLES_H_
+#define TUPLES_H_
+
 #include "cell.hpp"
 #include <boost/variant.hpp>
 #include <iostream>
@@ -19,3 +22,5 @@ class tuples {
         cell get(int index);
         std::string toString();
 };
+
+#endif  /*TUPLES_H*/
