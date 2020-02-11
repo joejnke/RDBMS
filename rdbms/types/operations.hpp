@@ -4,18 +4,26 @@
 #include "tuples.hpp"
 #include <iostream>
 #include <set>
-
+#include <algorithm>
 class operations{
-        static std::set<table> relUnion(std::set<table>R1 ,std::set<table> R2);
-      
-        static std::set<table> intersection(std::set<table> R1 ,std::set<table> R2);
-      
-        static std::set<table> difference(std::set<table> R1 ,std::set<table> R2);
-      
-        static std::set<table> projection(std::set<table> R1);
-      
-        static std::set<table> selection(std::set<table> R1);
-      
-        static std::set<table> natural_join(std::set<table> R1 ,std::set<table> R2);        
+/*    private:
+        table runion;
+        table intersection;
+        table difference;
+        table projection;
+        table selection;
+        table natural_join;*/
+    public:
+        table runion (table R1 ,table R2);
+
+        table intersection(table R1 ,table R2);
+
+        table difference(table R1 ,table R2);
+
+        table projection(table R1);
+
+        table selection(table R1);
+
+        table natural_join(table R1 ,table R2);        
 
 };
