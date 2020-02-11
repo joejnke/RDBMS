@@ -14,6 +14,8 @@ class rSchema {
         std::string get_name();
 
         tuples get_attributes();
+
+        std::string toString();
 };
 
 struct rSchemaComparator {
