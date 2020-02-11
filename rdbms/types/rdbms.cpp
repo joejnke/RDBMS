@@ -66,6 +66,137 @@ cout<<result[3]<<" table created\n";
     cout<<"error: unknown comand\n";
   }
   }
+  else if (result[0]=="insert")
+  {
+   if(result.size()<=1)
+       cout<<"error: you have to insert the table name then the row data\n";
+    else
+    {
+        if(result.size()<=2)
+        cout<<"error: you have to insert the row data\n";
+        else
+        {
+            cout<<"data inserted to: "<<result[1]<<endl;
+        }   
+    }
+  }
+else if (result[0]=="remove")
+  {
+      if(result.size()<=1)
+      cout<<"error: you have to specify what you want to remove\n";
+      else if(result[1]=="row")
+      {
+   if(result.size()<=2)
+       cout<<"error: you have to insert the table name then the row to be removed\n";
+    else
+    {
+        if(result.size()<=3)
+        cout<<"error: you have to insert the row to be removed\n";
+        else
+        {
+            cout<<"data removed from: "<<result[2]<<endl;
+        }   
+    }
+    }
+    else if(result[1]=="table")
+    {
+         if(result.size()<=2)
+    cout<<"error: you have to input the table name\n";
+    else
+    {
+cout<<result[2]<<" removed\n";
+    }
+    }
+  }
+else if(result[0]=="display")
+{
+    if(result.size()<=1)
+    cout<<"error: you have to input the table name\n";
+    else
+    {
+cout<<"table displayed\n";
+    }
+}
+else if(result[0]=="union")
+{
+    if(result.size()<=1)
+    cout<<"error: insert the first table name\n";
+    else
+    {
+        if(result.size()<=2)
+        cout<<"error: you have to input the secont table name\n";
+        else
+        {
+            cout<<"display the union\n";
+        }
+    }    
+}
+else if(result[0]=="intersection")
+{
+    if(result.size()<=1)
+    cout<<"error: insert the first table name\n";
+    else
+    {
+        if(result.size()<=2)
+        cout<<"error: you have to input the secont table name\n";
+        else
+        {
+            cout<<"display the intersection\n";
+        }
+    }    
+}
+else if(result[0]=="difference")
+{
+    if(result.size()<=1)
+    cout<<"error: insert the first table name\n";
+    else
+    {
+        if(result.size()<=2)
+        cout<<"error: you have to input the secont table name\n";
+        else
+        {
+            cout<<"display the difference\n";
+        }
+    }    
+}
+else if(result[0]=="project")
+{
+    if(result.size()<=1)
+    cout<<"error: insert the table name\n";
+    else
+    {
+        if(result.size()<=2)
+        cout<<"error: you have to input attribute name\n";
+        else
+        {
+            cout<<"display the union\n";
+        }
+    }    
+}
+else if(result[0]=="select")
+{
+    if(result.size()<=1)
+    cout<<"error: oyu have to input the table name\n";
+    else
+    {
+        cout<<"display the the selected data\n";
+    }
+    
+}
+else if(result[0]=="njoin")
+{
+    if(result.size()<=1)
+    cout<<"error: insert the first table name\n";
+    else
+    {
+        if(result.size()<=2)
+        cout<<"error: you have to input the secont table name\n";
+        else
+        {
+            cout<<"display the natural join\n";
+        }
+    }    
+}
    result.clear();
     }while(datainput!="exit");
     return 0;
