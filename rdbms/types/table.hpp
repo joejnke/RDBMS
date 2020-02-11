@@ -23,6 +23,8 @@ class table
 
         std::set<tuples> get_rows();
 
+        void set_rows(std::set<tuples> rowSet);
+
         void add_row(tuples rowTuple);
 
         void remove_row(tuples rowTuple);

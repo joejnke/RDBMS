@@ -31,6 +31,10 @@ std::set<tuples> table::get_rows() {
     return this->rows;
 }
 
+void table::set_rows(std::set<tuples> rowSet) {
+    this->rows = rowSet;
+}
+
 void table::add_row(tuples rowTuple) {
     this->rows.insert(rowTuple);
 }
