@@ -133,6 +133,21 @@ std::string test_get() {
     
 };
 
+std::string test_toString() {
+    testCount++;
+    tuples testTup (1, "Ethiopia");
+    testResult = ("\nTest toString(): ");
+    if ( "( 1 Ethiopia )" == testTup.toString()) {
+        testResult += "\nPass ";
+        passedTestCount++;
+    }
+    else {
+        testResult += "\nFail";
+    }
+    
+    return  testResult;    
+};
+
 int main() {
     cout<<"\n<<<<<<<<<<<<<<< Test tuples class >>>>>>>>>>>>>>>>\n";
     cout<< test_default_constructor();
@@ -140,6 +155,7 @@ int main() {
     cout<< test_isEqual();
     cout<< test_get_elements();
     cout<< test_get();
+    cout<< test_toString();
     cout<<"\n\nPassed " << passedTestCount << "/" << testCount<<" tests";
     cout<<"\n<<<<<<<<<<< end of tuples class test >>>>>>>>>>>>>\n";
 }
