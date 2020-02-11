@@ -9,7 +9,7 @@ using namespace std;
 
 typedef boost::variant<set<std::string>,set<double>,set<int>,double,std::string,int> cell;
 
-struct toString
+struct cell_to_string
     : public boost::static_visitor<std::string>
 {
 public:
@@ -59,6 +59,11 @@ public:
 
         return result;
     }
+};
+
+class cellType {
+public:    
+    static std::string toString(cell item);
 };
 
 #endif  /*CELL_H*/

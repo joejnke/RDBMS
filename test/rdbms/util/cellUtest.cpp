@@ -19,7 +19,7 @@ cell cellOfStringSet = set<std::string> {"Abyssinia", "Ethiopia"};
 
 std::string test_toString() {
     testResult = "\nTest toString(): ";
-    if ("27211912" == boost::apply_visitor(toString(), cellOfInt)) {
+    if ("27211912" == cellType::toString(cellOfInt)) {
         testResult += "\nPass for \"cell of type int\"";        
         passedTestCount++;
         testCount++;
@@ -30,7 +30,7 @@ std::string test_toString() {
         testCount++;
     }
 
-    if (std::to_string(2721.1912) == boost::apply_visitor(toString(), cellOfDouble)) {
+    if (std::to_string(2721.1912) == cellType::toString(cellOfDouble)) {
         testResult += "\nPass for \"cell of type double\"";        
         passedTestCount++;
         testCount++;
@@ -38,11 +38,11 @@ std::string test_toString() {
 
     else {
         testResult += "\nFail for \"cell of type double\"";
-        testResult += "\n" + boost::apply_visitor(toString(), cellOfDouble) + "\n";
+        testResult += "\n" + cellType::toString(cellOfDouble) + "\n";
         testCount++;
     }
 
-    if ("Ethiopia" == boost::apply_visitor(toString(), cellOfString)) {
+    if ("Ethiopia" == cellType::toString(cellOfString)) {
         testResult += "\nPass for \"cell of type string\"";        
         passedTestCount++;
         testCount++;
@@ -53,7 +53,7 @@ std::string test_toString() {
         testCount++;
     }
             
-    if ("( 12 19 21 27 )" == boost::apply_visitor(toString(), cellOfIntSet)) {
+    if ("( 12 19 21 27 )" == cellType::toString(cellOfIntSet)) {
         testResult += "\nPass for \"cell of type set<int>\"";        
         passedTestCount++;
         testCount++;
@@ -64,7 +64,7 @@ std::string test_toString() {
         testCount++;
     }
             
-    if ("( 1.200000 1.900000 2.100000 2.700000 )" == boost::apply_visitor(toString(), cellOfDoubleSet)) {
+    if ("( 1.200000 1.900000 2.100000 2.700000 )" == cellType::toString(cellOfDoubleSet)) {
         testResult += "\nPass for \"cell of type set<double>\"";        
         passedTestCount++;
         testCount++;
@@ -72,11 +72,11 @@ std::string test_toString() {
 
     else {
         testResult += "\nFail for \"cell of type set<double>\"";
-        testResult += "\n" + boost::apply_visitor(toString(), cellOfDoubleSet) + "\n";
+        testResult += "\n" + cellType::toString(cellOfDoubleSet) + "\n";
         testCount++;
     }
             
-    if ("( Abyssinia Ethiopia )" == boost::apply_visitor(toString(), cellOfStringSet)) {
+    if ("( Abyssinia Ethiopia )" == cellType::toString(cellOfStringSet)) {
         testResult += "\nPass for \"cell of type set<std::string>\"";        
         passedTestCount++;
         testCount++;
