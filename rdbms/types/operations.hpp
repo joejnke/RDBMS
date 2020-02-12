@@ -1,3 +1,6 @@
+#ifndef OPERATIONS_H_
+#define OPERATIONS_H_
+
 #include "cell.hpp"
 #include "rSchema.hpp"
 #include "table.hpp"
@@ -27,3 +30,5 @@ class operations{
         table natural_join(table R1 ,table R2);        
 
 };
+
+#endif  /*OPERATIONS_H_*/

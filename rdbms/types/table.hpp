@@ -1,3 +1,6 @@
+#ifndef TABLE_H_
+#define TABLE_H_
+
 #include "rSchema.hpp"
 #include "tuples.hpp"
 #include <iostream>
@@ -19,11 +22,19 @@ class table
 
         tuples get_attributes();
 
-        std::set<cell> get_column(std::string attribName);
+        rSchema get_tableRSchema();
 
-        std::set<tuples> get_rows();
+        std::set<cell> get_column(std::string attribName);
 
         void add_row(tuples rowTuple);
 
         void remove_row(tuples rowTuple);
+
+        std::set<tuples> get_rows();
+
+        void set_rows(std::set<tuples> rowSet);
+
+        std::string toString();
 };
+
+#endif  /*TABLE_H_*/

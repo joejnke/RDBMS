@@ -17,3 +17,9 @@ std::string rSchema::get_name() {
 tuples rSchema::get_attributes() {
     return this->attributes;
 }
+
+std::string rSchema::toString() {
+    std::string info = this->get_name();
+    info += "\n";
+    info += this->get_attributes().toString();
+}
