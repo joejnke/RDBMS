@@ -62,8 +62,8 @@ std::string test_isEqual() {
 
 std::string test_get_elements() {
     testCount +=2;  // for the two tests
-    set<set<cell>> sameElm {{1}, {1, 1}};
-    set<set<cell>> distinctElm {{1}, {1, "Ethiopia"}};    
+    set<set<cell, cellComparator>> sameElm {{1}, {1, 1}};
+    set<set<cell, cellComparator>> distinctElm {{1}, {1, "Ethiopia"}};    
     tuples testSameElm (1, 1);
     tuples testDistinctElm (1, "Ethiopia");
 
