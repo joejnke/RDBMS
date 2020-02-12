@@ -2,6 +2,7 @@
 #include "rSchema.hpp"
 #include "tuples.hpp"
 #include <iostream>
+#include <set>
 #include <string>
 
 using namespace std;
