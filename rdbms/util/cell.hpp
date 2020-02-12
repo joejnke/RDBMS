@@ -61,6 +61,35 @@ public:
     }
 };
 
+struct cellComparator 
+    : public boost::static_visitor<bool>
+{
+public:    
+    bool operator()(int & lhs, int & rhs) const {
+        return lhs < rhs;
+    }
+
+    bool operator()(double & lhs, double & rhs) const {
+        return lhs < rhs;
+    }
+
+    bool operator()(std::string & lhs, std::string & rhs) const {
+        return lhs < rhs;
+    }
+
+    bool operator()(set<int> & lhs, set<int> & rhs) const {
+        return lhs < rhs;
+    }
+
+    bool operator()(set<double> & lhs, set<double> & rhs) const {
+        return lhs < rhs;
+    }
+
+    bool operator()(set<std::string> & lhs, set<std::string> & rhs) const {
+        return lhs < rhs;
+    }
+};
+
 class cellType {
 public:    
     static std::string toString(cell item);
