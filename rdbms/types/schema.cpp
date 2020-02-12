@@ -26,8 +26,7 @@ std::set<rSchema, rSchemaComparator> schema::get_rSchemaSet() {
 std::string schema::toString() {
     std::string info;
     for (auto rs : schema::get_rSchemaSet()) {
-        info += rs.get_name() + "\n"
-                + rs.get_attributes().toString() + "\n\n";
+        info += rs.toString() + "\n";
     }
     return info;
 }
