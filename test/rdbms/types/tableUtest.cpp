@@ -104,20 +104,20 @@ std::string test_get_column() {
     // TODO
 };
 
+std::string test_add_row() {
+    // TODO
+};
+
+std::string test_remove_row() {
+    // TODO
+};
+
 std::string test_get_rows() {
     // TODO: requires a comparator for tuples. So there has to be comparaor for 
     // cell, tuples, rSchema, tables and schema. The comparator is one that can be use with set
 };
 
 std::string test_set_rows() {
-    // TODO
-};
-
-std::string test_add_row() {
-    // TODO
-};
-
-std::string test_remove_row() {
     // TODO
 };
 
@@ -150,10 +150,10 @@ int main() {
     cout<< test_get_attributes() <<"\n";
     cout<< test_get_tableRSchema() <<"\n";
     // cout<< test_get_column() <<"\n";
-    // cout<< test_get_rows() <<"\n";
-    // cout<< test_set_rows() <<"\n";
     // cout<< test_add_row() <<"\n";
     // cout<< test_remove_row() <<"\n";
+    // cout<< test_get_rows() <<"\n";
+    // cout<< test_set_rows() <<"\n";
     cout<< test_toString();
     cout<<"\n\nPassed " << passedTestCount << "/" << testCount<<" tests";
     cout<<"\n<<<<<<<<<<< end of table class test >>>>>>>>>>>>>\n";

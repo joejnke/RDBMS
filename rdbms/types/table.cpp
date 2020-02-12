@@ -31,14 +31,6 @@ std::set<cell> table::get_column(std::string attribName) {
     //TODO;
 }
 
-std::set<tuples> table::get_rows() {
-    return this->rows;
-}
-
-void table::set_rows(std::set<tuples> rowSet) {
-    this->rows = rowSet;
-}
-
 void table::add_row(tuples rowTuple) {
     this->rows.insert(rowTuple);
 }
@@ -47,11 +39,19 @@ void table::remove_row(tuples rowTuple) {
     this->rows.erase(rowTuple);
 }
 
+std::set<tuples> table::get_rows() {
+    return this->rows;
+}
+
+void table::set_rows(std::set<tuples> rowSet) {
+    this->rows = rowSet;
+}
+
 std::string table::toString() {
     std::string info = this->get_tableRSchema().toString() + "\n";
     for (auto row : table::get_rows()) {
         info += row.toString() + "\n";
     }
-    
+
     return info;
 }
