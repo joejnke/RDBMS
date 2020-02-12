@@ -1,3 +1,6 @@
+#ifndef RSCHEMA_H_
+#define RSCHEMA_H_
+
 #include "tuples.hpp"
 #include <iostream>
 
@@ -23,3 +26,5 @@ struct rSchemaComparator {
         return lhs.get_name() < rhs.get_name();
     }
 };
+
+#endif  /*RSCHEMA_H_*/

@@ -1,3 +1,6 @@
+#ifndef TABLE_H_
+#define TABLE_H_
+
 #include "rSchema.hpp"
 #include "tuples.hpp"
 #include <iostream>
@@ -29,3 +32,5 @@ class table
 
         void remove_row(tuples rowTuple);
 };
+
+#endif  /*TABLE_H_*/
