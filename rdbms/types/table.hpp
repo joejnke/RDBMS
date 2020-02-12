@@ -11,7 +11,7 @@ class table
     private:
         /* data */
         rSchema tableSpec;  // relational schema specifications of a table
-        std::set<tuples> rows;    // container for the tuples of a table
+        std::set<tuples, tuplesComparator> rows;    // container for the tuples of a table
 
     public:
         table();
@@ -30,9 +30,9 @@ class table
 
         void remove_row(tuples rowTuple);
 
-        std::set<tuples> get_rows();
+        std::set<tuples, tuplesComparator> get_rows();
 
-        void set_rows(std::set<tuples> rowSet);
+        void set_rows(std::set<tuples, tuplesComparator> rowSet);
 
         std::string toString();
 };

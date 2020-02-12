@@ -39,11 +39,11 @@ void table::remove_row(tuples rowTuple) {
     this->rows.erase(rowTuple);
 }
 
-std::set<tuples> table::get_rows() {
+std::set<tuples, tuplesComparator> table::get_rows() {
     return this->rows;
 }
 
-void table::set_rows(std::set<tuples> rowSet) {
+void table::set_rows(std::set<tuples, tuplesComparator> rowSet) {
     this->rows = rowSet;
 }
 
