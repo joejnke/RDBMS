@@ -22,6 +22,8 @@ class table
 
         tuples get_attributes();
 
+        rSchema get_tableRSchema();
+
         std::set<cell> get_column(std::string attribName);
 
         std::set<tuples> get_rows();

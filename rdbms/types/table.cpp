@@ -23,6 +23,10 @@ tuples table::get_attributes() {
     return this->tableSpec.get_attributes();
 }
 
+rSchema table::get_tableRSchema() {
+    return this->tableSpec;
+}
+
 std::set<cell> table::get_column(std::string attribName) {
     //TODO;
 }
