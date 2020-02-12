@@ -61,7 +61,7 @@ public:
     }
 };
 
-struct cellComparator 
+struct cell_comparator 
     : public boost::static_visitor<bool>
 {
 public:    
@@ -87,6 +87,12 @@ public:
 
     bool operator()(set<std::string> & lhs, set<std::string> & rhs) const {
         return lhs < rhs;
+    }
+};
+
+struct cellComparator {
+    bool operator()(cell lhs, cell rhs) {
+        return boost::apply_visitor(cell_comparator(), lhs, rhs);
     }
 };
 
