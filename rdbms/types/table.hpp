@@ -37,4 +37,10 @@ class table
         std::string toString();
 };
 
+struct tableComparator {
+    bool operator()(table lhs, table rhs) {
+        return lhs.get_table_name() < rhs.get_table_name();
+    }
+};
+
 #endif  /*TABLE_H_*/
