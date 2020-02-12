@@ -46,3 +46,12 @@ void table::add_row(tuples rowTuple) {
 void table::remove_row(tuples rowTuple) {
     this->rows.erase(rowTuple);
 }
+
+std::string table::toString() {
+    std::string info = this->get_tableRSchema().toString() + "\n";
+    for (auto row : table::get_rows()) {
+        info += row.toString() + "\n";
+    }
+    
+    return info;
+}

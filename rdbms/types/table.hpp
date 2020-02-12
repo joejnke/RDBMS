@@ -33,6 +33,8 @@ class table
         void add_row(tuples rowTuple);
 
         void remove_row(tuples rowTuple);
+
+        std::string toString();
 };
 
 #endif  /*TABLE_H_*/
