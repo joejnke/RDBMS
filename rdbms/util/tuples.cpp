@@ -11,11 +11,11 @@ tuples::tuples(){}
 
 tuples::tuples(cell elm1, cell elm2) {
   this->num_of_elements = 2;
-  this->elements.insert(set<cell> {elm1});
-  this->elements.insert(set<cell> {elm1, elm2});  
+  this->elements.insert(set<cell, cellComparator> {elm1});
+  this->elements.insert(set<cell, cellComparator> {elm1, elm2});  
 }
 
-set<set<cell>> tuples::get_elements(){
+set<set<cell, cellComparator>> tuples::get_elements(){
   return this->elements;
 }
 
@@ -35,7 +35,7 @@ cell tuples::get(int index) {
   // then return the one with size one for index 0 and 
   // the one with size 2, which is >1, for index 1
   else if (index == 0) {
-    set<set<cell>>::iterator itr;
+    set<set<cell, cellComparator>>::iterator itr;
     for (itr = this->elements.begin(); itr != this->elements.end(); itr++) {
       if (itr->size() == 1) {
         return *itr->begin();
@@ -43,8 +43,8 @@ cell tuples::get(int index) {
     }
   }
   else {
-    set<set<cell>>::iterator itr;
-    std::set<cell>::iterator firstElmItr;  // iterator for the elment of index 0
+    set<set<cell, cellComparator>>::iterator itr;
+    std::set<cell, cellComparator>::iterator firstElmItr;  // iterator for the elment of index 0
 
     for (itr = this->elements.begin(); itr != this->elements.end(); itr++) {
       if (itr->size() > 1) {
@@ -61,7 +61,7 @@ cell tuples::get(int index) {
 }
 
 std::string tuples::toString() {
-  set<set<cell>>::iterator itr;
+  set<set<cell, cellComparator>>::iterator itr;
   std::string info = "( ";
 
   for (int i = 0; i < this->elements.size(); i++) {

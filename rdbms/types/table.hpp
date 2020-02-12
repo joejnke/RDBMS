@@ -24,7 +24,7 @@ class table
 
         rSchema get_tableRSchema();
 
-        std::set<cell> get_column(std::string attribName);
+        std::set<cell, cellComparator> get_column(std::string attribName);
 
         void add_row(tuples rowTuple);
 

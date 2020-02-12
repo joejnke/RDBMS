@@ -27,7 +27,7 @@ rSchema table::get_tableRSchema() {
     return this->tableSpec;
 }
 
-std::set<cell> table::get_column(std::string attribName) {
+std::set<cell, cellComparator> table::get_column(std::string attribName) {
     //TODO;
 }
 
