@@ -23,4 +23,10 @@ class tuples {
         std::string toString();
 };
 
+struct tuplesComparator {
+    bool operator()(tuples lhs, tuples rhs) {
+        return lhs.get_elements() < rhs.get_elements();
+    }
+};
+
 #endif  /*TUPLES_H_*/
