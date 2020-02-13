@@ -34,7 +34,7 @@ bool test_return_union()
     // union this tables 
     operations operation_union;
     union_R1_R2 = operation_union.runion(R1, R2);
-    set<tuples> union_values;
+    set<tuples, tuplesComparator> union_values;
     union_values.insert(R1_row1);
     union_values.insert(R2_row1);
 
@@ -70,7 +70,7 @@ bool test_return_intersect()
     // union this tables 
     operations operation_intersect;
     intersect_R1_R2 = operation_intersect.intersection(R1, R2);
-    set<tuples> intersect_values;
+    set<tuples, tuplesComparator> intersect_values;
     intersect_values.insert(R1_row1);
 
     if(intersect_values == intersect_R1_R2.get_rows()){
@@ -108,7 +108,7 @@ bool test_return_difference()
     // union this tables 
     operations operation_difference;
     difference_R1_R2 = operation_difference.difference(R1, R2);
-    set<tuples> difference_values;
+    set<tuples, tuplesComparator> difference_values;
     difference_values.insert(R1_row2);
     
     if(difference_values == difference_R1_R2.get_rows()){
