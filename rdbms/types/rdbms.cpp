@@ -42,7 +42,7 @@ int main(){
                     if(result.size()<=3)
                         cout<<"error: no table name inserted\n";
                     else {
-                        tableMap.emplace(result[3],table (rschemaMap.at(result[2])));
+                        tableMap.emplace(result[2],table (rschemaMap.at(result[3])));
                         cout<<result[3]<<" table created\n";
                         result.clear();
                     }
