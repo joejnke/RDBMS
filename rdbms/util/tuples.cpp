@@ -65,7 +65,7 @@ std::string tuples::toString() {
   std::string info = "( ";
 
   for (int i = 0; i < this->elements.size(); i++) {
-    info += this->get(i);
+    info += this->get(i) + " ";
   }
   
   info += ")";
