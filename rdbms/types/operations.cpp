@@ -33,7 +33,7 @@ table operations::intersection(table R1 ,table R2){
     }
 
 
-    table::table intersect_table(rSchema("runion",R1.get_attributes));
+    table intersect_table (rSchema("runion",R1.get_attributes()));
 
      for (std::set<tuples, tuplesComparator>::iterator itr1 = R1.get_rows().begin(); itr1 != R1.get_rows().end(); ++itr1) 
     { 
@@ -53,7 +53,7 @@ table operations::difference(table R1 ,table R2){
    if (!tuples::isEqual(R1.get_attributes() , R2.get_attributes())){
         throw "Invalid Table atteribute types can't Union the two tables";
     }
-    table::table difference_table(rSchema("runion",R1.get_attributes));
+    table difference_table (rSchema("runion",R1.get_attributes()));
 
      for (std::set<tuples, tuplesComparator>::iterator itr1 = R1.get_rows().begin(); itr1 != R1.get_rows().end(); ++itr1) 
     { 
