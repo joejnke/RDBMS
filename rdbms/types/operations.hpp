@@ -17,17 +17,17 @@ class operations{
         table selection;
         table natural_join;*/
     public:
-        table runion (table R1 ,table R2);
-
-        table intersection(table R1 ,table R2);
-
-        table difference(table R1 ,table R2);
-
-        table projection(table R1);
-
-        table selection(table R1);
-
-        table natural_join(table R1 ,table R2);        
+        static table runion (table R1 ,table R2);
+    
+        static table intersection(table R1 ,table R2);
+    
+        static table difference(table R1 ,table R2);
+    
+        static table projection(table R1);
+    
+        static table selection(table R1);
+    
+        static table natural_join(table R1 ,table R2);        
 
 };
 

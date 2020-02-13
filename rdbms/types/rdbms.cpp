@@ -1,4 +1,5 @@
 #include "cell.hpp"
+#include "operations.hpp"
 #include "rSchema.hpp"
 #include "table.hpp"
 #include "tuples.hpp"
@@ -120,9 +121,9 @@ int main(){
                 if(result.size()<=2)
                     cout<<"error: you have to input the second table name\n";
                 else {
-                    operations.runion(result[1],result[2]);
-
-                    cout<<"display the union\n";
+                    cout<<"display the union\n" + 
+                          operations::runion(tableMap.at(result[1]),
+                                                   tableMap.at(result[2])).toString();
                 }
             }    
         }
@@ -134,9 +135,9 @@ int main(){
                 if(result.size()<=2)
                     cout<<"error: you have to input the secont table name\n";
                 else {
-                    operations.intersection(result[1],result[2]);
-
-                    cout<<"display the intersection\n";
+                    cout<<"display the intersection\n" + 
+                          operations::intersection(tableMap.at(result[1]),
+                                                   tableMap.at(result[2])).toString();
                 }
             }    
         }
@@ -148,9 +149,9 @@ int main(){
                 if(result.size()<=2)
                     cout<<"error: you have to input the secont table name\n";
                 else {
-                    operations.difference(result[1],result[2]);
-
-                    cout<<"display the difference\n";
+                    cout<<"display the difference\n" + 
+                          operations::difference(tableMap.at(result[1]),
+                                                   tableMap.at(result[2])).toString();                    
                 }
             }    
         }
@@ -162,19 +163,19 @@ int main(){
                 if(result.size()<=2)
                     cout<<"error: you have to input attribute name\n";
                 else {
-                    operations.projection(result[1]);
-                    cout<<"display the projection\n"; 
+                    cout<<"display the projection\n" + 
+                          operations::projection(tableMap.at(result[1])).toString();                     
                 }
             }    
         }
 
+        // revisit implementation
         else if(result[0]=="select") {
             if(result.size()<=1)
                 cout<<"error: you have to input the table name\n";
             else {
-                operations.selection(result[1]);
-
-                cout<<"display the the selected data\n";
+                cout<<"display the selected data\n" + 
+                        operations::selection(tableMap.at(result[1])).toString();                
             }
         }
 
@@ -185,9 +186,9 @@ int main(){
                 if(result.size()<=2)
                     cout<<"error: you have to input the second table name\n";
                 else {
-                    operations.natural_join(result[1],result[2]);
-
-                    cout<<"display the natural join\n";
+                    cout<<"display the natural join\n" + 
+                          operations::natural_join(tableMap.at(result[1]),
+                                                   tableMap.at(result[2])).toString();
                 }
             }    
         }
