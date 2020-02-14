@@ -1,15 +1,15 @@
-#include "cell.hpp"
+#include "../util/cell.hpp"
 #include "operations.hpp"
 #include "rSchema.hpp"
 #include "table.hpp"
-#include "tuples.hpp"
+#include "../util/tuples.hpp"
 #include <iostream>
 #include <set>
 #include <algorithm>
 
 table operations::runion(table R1 ,table R2){
     //conditional statment will not work tuple comparing function must be implimented
-    if (tuple<T>::isEqual(R1.get_attributes() , R2.get_attributes()) == false){
+    if (tuples::isEqual(R1.get_attributes() , R2.get_attributes()) == false){
         throw "Invalid Table atteribute types can't Union the two tables";
     }
 
@@ -26,17 +26,17 @@ table operations::runion(table R1 ,table R2){
     
     */
 
-    for (std::set<tuple<T>>::iterator it=R1.get_rows().begin(); it!=R1.get_rows().end(); ++it)
+    for (std::set<tuples>::iterator it=R1.get_rows().begin(); it!=R1.get_rows().end(); ++it)
         runion.add_row(*it);
 
-    for (std::set<tuple<T>>::iterator it2=R2.get_rows().begin(); it2!=R2.get_rows().end(); ++it2)
+    for (std::set<tuples>::iterator it2=R2.get_rows().begin(); it2!=R2.get_rows().end(); ++it2)
         runion.add_row(*it2); 
 
     return runion;
 }
 
 table operations::intersection(table R1 ,table R2){
-    if (tuple<T>::isEqual(R1.get_attributes() , R2.get_attributes()) == false){
+    if (tuples::isEqual(R1.get_attributes() , R2.get_attributes()) == false){
         throw "Invalid Table atteribute types can't perform Intersection of the two tables";
     }
 
@@ -56,7 +56,7 @@ table operations::intersection(table R1 ,table R2){
 }
 
 table operations::difference(table R1 ,table R2){
-    if (tuple<T>::isEqual(R1.get_attributes() , R2.get_attributes()) == false){
+    if (tuples::isEqual(R1.get_attributes() , R2.get_attributes()) == false){
         throw "Invalid Table atteribute types can't perform Intersection of the two tables";
     }
 
