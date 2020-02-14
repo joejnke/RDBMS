@@ -89,4 +89,8 @@ It is denoted by:
 5. Selection
 
 6. Natural_join
-	
+
+### Compile this specific branch "String_cell_for_demo"
+```cd path/to/RDBMS/rdbms/types```
+
+```g++ -o rdbms.o *.cpp ../util/*.cpp -I ../util/ -std=c++11```
