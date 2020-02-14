@@ -17,5 +17,7 @@ std::string test_remove_row();
 std::string test_get_rows();
 std::string test_set_rows();
 std::string test_toString();
+int get_tableTestCount();
+int get_tablePassedTestCount();
 
 #endif /*TABLE_UTEST_H_*/

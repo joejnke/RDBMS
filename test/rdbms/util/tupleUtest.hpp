@@ -12,5 +12,7 @@ std::string test_isEqual();
 std::string test_get_elements();
 std::string test_get();
 std::string test_toString();
+int get_tuplesTestCount();
+int get_tuplesPassedTestCount();
 
 #endif /*TUPLES_UTEST_H_*/

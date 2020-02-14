@@ -11,5 +11,7 @@ std::string test_parametrized_constructor();
 std::string test_get_name();
 std::string test_get_attributes();
 std::string test_toString();
+int get_rSchemaTestCount();
+int get_rSchemaPassedTestCount();
 
 #endif /*RSCHEMA_UTEST_H_*/

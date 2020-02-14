@@ -25,7 +25,7 @@ int main() {
     cout<< test_get_elements() <<"\n";
     cout<< test_get() <<"\n";
     cout<< test_toString();
-    cout<<"\n\nPassed " << passedTestCount << "/" << testCount<<" tests";
+    cout<<"\n\nPassed " << get_tuplesTestCount() << "/" << get_tuplesPassedTestCount()<<" tests";
     cout<<"\n<<<<<<<<<<< end of tuples class test >>>>>>>>>>>>>\n";
 
     cout<<"\n<<<<<<<<<<<<<<< Test rSchema class >>>>>>>>>>>>>>>>\n";
@@ -34,7 +34,7 @@ int main() {
     cout<< test_get_name() <<"\n";
     cout<< test_get_attributes() <<"\n";
     cout<< test_toString();
-    cout<<"\n\nPassed " << passedTestCount << "/" << testCount<<" tests";
+    cout<<"\n\nPassed " << get_rSchemaPassedTestCount() << "/" << get_rSchemaTestCount()<<" tests";
     cout<<"\n<<<<<<<<<<< end of rSchema class test >>>>>>>>>>>>>\n";
 
     cout<<"\n<<<<<<<<<<<<<<< Test table class >>>>>>>>>>>>>>>>\n";
@@ -49,7 +49,7 @@ int main() {
     // cout<< test_get_rows() <<"\n";
     // cout<< test_set_rows() <<"\n";
     cout<< test_toString();
-    cout<<"\n\nPassed " << passedTestCount << "/" << testCount<<" tests";
+    cout<<"\n\nPassed " << get_tablePassedTestCount() << "/" << get_tableTestCount()<<" tests";
     cout<<"\n<<<<<<<<<<< end of table class test >>>>>>>>>>>>>\n";
 
     cout<<"\n<<<<<<<<<<<<<<< Test schema class >>>>>>>>>>>>>>>>\n";
@@ -59,6 +59,6 @@ int main() {
     cout<< test_remove_rSchema() <<"\n";
     cout<< test_get_rSchemaSet() <<"\n";
     cout<< test_toString();
-    cout<<"\n\nPassed " << passedTestCount << "/" << testCount<<" tests";
+    cout<<"\n\nPassed " << get_schemaPassedTestCount() << "/" << get_schemaTestCount()<<" tests";
     cout<<"\n<<<<<<<<<<< end of schema class test >>>>>>>>>>>>>\n";
 }

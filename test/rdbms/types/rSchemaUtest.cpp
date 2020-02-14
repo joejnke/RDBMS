@@ -84,13 +84,10 @@ std::string test_toString() {
     return  testResult;
 };
 
-int main() {
-    cout<<"\n<<<<<<<<<<<<<<< Test rSchema class >>>>>>>>>>>>>>>>\n";
-    cout<< test_default_constructor() <<"\n";
-    cout<< test_parametrized_constructor() <<"\n";
-    cout<< test_get_name() <<"\n";
-    cout<< test_get_attributes() <<"\n";
-    cout<< test_toString();
-    cout<<"\n\nPassed " << passedTestCount << "/" << testCount<<" tests";
-    cout<<"\n<<<<<<<<<<< end of rSchema class test >>>>>>>>>>>>>\n";
+int get_rSchemaTestCount() {
+    return testCount;
+}
+
+int get_rSchemaPassedTestCount() {
+    return passedTestCount;
 }

@@ -12,5 +12,7 @@ std::string test_add_rSchema();
 std::string test_remove_rSchema();
 std::string test_get_rSchemaSet();
 std::string test_toString();
+int get_schemaTestCount();
+int get_schemaPassedTestCount();
 
 #endif /*SCHEMA_UTEST_H_*/
