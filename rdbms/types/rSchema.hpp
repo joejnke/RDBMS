@@ -1,30 +1,25 @@
 #ifndef RSCHEMA_H_
 #define RSCHEMA_H_
-
 #include "tuples.hpp"
 #include <iostream>
 
+
 class rSchema {
-    private:
+private:
         std::string name;
         tuples attributes;
-
-    public:
+public:
         rSchema();
-
         rSchema(std::string rsName, tuples rsAttribs);
-
         std::string get_name();
-
         tuples get_attributes();
-
         std::string toString();
 };
-
-struct rSchemaComparator {
-    bool operator()(rSchema lhs, rSchema rhs) {
+struct rSchemaComparator 
+{
+    bool operator()(rSchema lhs, rSchema rhs) 
+    {
         return lhs.get_name() < rhs.get_name();
     }
 };
-
 #endif  /*RSCHEMA_H_*/
