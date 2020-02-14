@@ -11,7 +11,6 @@
 #include <map>
 #include <set>
 #include <string>
-
 using namespace std;
 
 
@@ -21,189 +20,275 @@ int main(){
     map<std::string,table> tableMap;
     map<std::string,rSchema> rschemaMap;
     system("clear");
-
     cout<<"enter the comand separating it with a comma\n";
-
-    do{
+    do
+    {
         cin>>datainput;
         boost::algorithm::to_lower(datainput);
         boost::split(result, datainput, boost::is_any_of(",")); 
-
-        if(result[0]=="create") {
-            if(result.size()<=1) {
+        if(result[0]=="create") 
+        {
+            if(result.size()<=1) 
+            {
                 cout<<"error: you have to specify what you want to do\n";
             }
-
-            else if(result[1]=="table") {
-                if(result.size()<=2) {
+            else if(result[1]=="table") 
+            {
+                if(result.size()<=2) 
+                {
                     cout<<"error: no relational schema name\n";
                 }
-                else {
+                else 
+                {
                     if(result.size()<=3)
                         cout<<"error: no table name inserted\n";
-                    else {
+                    else 
+                    {
+                 if ( rschemaMap.find(result[3]) == rschemaMap.end() )
+                cout<<"error: the relational schema doesnt exist\n";
+                else
+                {
                         tableMap.emplace(result[2],table (rschemaMap.at(result[3])));
                         cout<<result[3]<<" table created\n";
                         result.clear();
+                }
                     }
                 }
             }
-
-            else if(result[1]=="rschema") {
-                if(result.size()<=2) {
+            else if(result[1]=="rschema") 
+            {
+                if(result.size()<=2) 
+                {
                     cout<<"error: you have to specify the name of the relational schema\n";
                 }
                 else if(result.size()<=3)
                     cout<<"error: yo need to insert the atribute names\n";
-                else {
+                else 
+                {
                      rschemaMap.emplace(result[2],rSchema (result[2], tuples (result[3],result[4])));
                     cout<<result[2]<<" rschema created\n";
                     result.clear();
                 }
             }
-
-            else {
+            else 
+            {
                 cout<<"error: unknown comand\n";
             }
         }
-
-        else if (result[0]=="insert") {
+        else if (result[0]=="insert") 
+        {
             if(result.size()<=1)
                 cout<<"error: you have to insert the table name then the row data\n";
-            else {
+            else 
+            {
                 if(result.size()<=2)
                     cout<<"error: you have to insert the row data\n";
-                else {
-                   tableMap.at(result[1]).add_row (tuples (result[3], result[4])) ;   
-
-                    cout<<"data inserted to: "<<result[1]<<endl;
+                else 
+                {
+                if ( tableMap.find(result[1]) == tableMap.end() )
+                cout<<"error: the table doesnt exist\n";
+                else
+                {
+                    tableMap.at(result[1]).add_row (tuples (result[2], result[3]));
+                    cout<<"data inserted to "<<result[1]<<endl;   
+                }
                 }   
             }
         }
-
-        else if (result[0]=="remove") {
+        else if (result[0]=="remove") 
+        {
             if(result.size()<=1)
                 cout<<"error: you have to specify what you want to remove\n";
-            else if(result[1]=="row") {
+            else if(result[1]=="row") 
+            {
                 if(result.size()<=2)
                     cout<<"error: you have to insert the table name then the row to be removed\n";
-                else {
+                else 
+                {
                     if(result.size()<=3)
                         cout<<"error: you have to insert the row to be removed\n";
-                    else {
+                    else
+                     {
+                          if ( tableMap.find(result[1]) == tableMap.end() )
+                cout<<"error: the table doesnt exist\n";
+                else
                         tableMap.at(result[1]).remove_row(tuples (result[3], result[4]));
                         cout<<"data removed from: "<<result[2]<<endl;
                     }   
                 }
             }
-
-            else if(result[1]=="table") {
+            else if(result[1]=="table") 
+            {
                 if(result.size()<=2)
                     cout<<"error: you have to input the table name\n";
-                else {
-                    cout<<result[2]<<" removed\n";
+                else 
+                {
+                     if ( tableMap.find(result[2]) == tableMap.end() )
+                cout<<"error: the table doesnt exist\n";
+                else
+                    throw "not implemented yet\n";
                 }
             }
         }
-
-        else if(result[0]=="display") {
+        else if(result[0]=="display") 
+        {
             if(result.size()<=1)
                 cout<<"error: you have to input the table name\n";
-            else {
-                cout<<"table displayed\n";
+            else 
+            {
+                 if ( tableMap.find(result[1]) == tableMap.end() )
+                cout<<"error: the table doesnt exist\n";
+                else
+                {
+                     cout<<"table displayed...\n";
+                     cout<<tableMap.at(result[1]).get_tableRSchema().toString() <<"\n";
+                     for (auto tableRow : tableMap.at(result[1]).get_rows()) {
+                         cout<<tableRow.toString() << "\n";
+                     }
+                }
             }
         }
-
-        else if(result[0]=="union") {
+        else if(result[0]=="union") 
+        {
             if(result.size()<=1)
                 cout<<"error: insert the first table name\n";
-            else {
+            else 
+            {
                 if(result.size()<=2)
                     cout<<"error: you have to input the second table name\n";
-                else {
-                    cout<<"display the union\n" + 
-                          operations::runion(tableMap.at(result[1]),
-                                                   tableMap.at(result[2])).toString();
+                else 
+                {
+                     if ( tableMap.find(result[1]) == tableMap.end() and tableMap.find(result[2])==tableMap.end())
+                cout<<"error: the table or tables doesnt exist\n";
+                else
+                {
+                  if(tableMap.at(result[1]).get_tableRSchema().toString()==tableMap.at(result[2]).get_tableRSchema().toString())
+                    cout<<"display the union\n" << operations::runion(tableMap.at(result[1]), tableMap.at(result[2])).toString();
+                    else
+                    {
+                        cout<<"they are not in the same relational schema\n";
+                    }
+                }
                 }
             }    
         }
-
-        else if(result[0]=="intersection") {
+        else if(result[0]=="intersection") 
+        {
             if(result.size()<=1)
                 cout<<"error: insert the first table name\n";
-            else {
+            else 
+            {
                 if(result.size()<=2)
                     cout<<"error: you have to input the secont table name\n";
                 else {
-                    cout<<"display the intersection\n" + 
-                          operations::intersection(tableMap.at(result[1]),
-                                                   tableMap.at(result[2])).toString();
+                   if ( tableMap.find(result[1]) == tableMap.end() and tableMap.find(result[2])==tableMap.end())
+               cout<<"error: the table or tables doesnt exist\n";
+                else
+                {
+                  if(tableMap.at(result[1]).get_tableRSchema().toString()==tableMap.at(result[2]).get_tableRSchema().toString())
+                    cout<<"display the intersection\n" << operations::intersection(tableMap.at(result[1]),tableMap.at(result[2])).toString();   
+                    else
+                    {
+                        cout<<"they are not in the same relational schema\n";
+                    }
+                }
                 }
             }    
         }
-
-        else if(result[0]=="difference") {
+        else if(result[0]=="difference") 
+        {
             if(result.size()<=1)
                 cout<<"error: insert the first table name\n";
-            else {
+            else 
+            {
                 if(result.size()<=2)
                     cout<<"error: you have to input the secont table name\n";
-                else {
-                    cout<<"display the difference\n" + 
-                          operations::difference(tableMap.at(result[1]),
-                                                   tableMap.at(result[2])).toString();                    
+                else 
+                {
+                    if ( tableMap.find(result[1]) == tableMap.end() and tableMap.find(result[2])==tableMap.end())
+               cout<<"error: the table or tables doesnt exist\n";
+                else
+                {
+                  if(tableMap.at(result[1]).get_tableRSchema().toString()==tableMap.at(result[2]).get_tableRSchema().toString())
+                     cout<<"display the difference\n" <<operations::difference(tableMap.at(result[1]),tableMap.at(result[2])).toString();   
+                    else
+                    {
+                        cout<<"they are not in the same relational schema\n";
+                    }
+                }                    
                 }
             }    
         }
-
-        else if(result[0]=="project") {
+        else if(result[0]=="project") 
+        {
             if(result.size()<=1)
                 cout<<"error: insert the table name\n";
-            else {
+            else 
+            {
                 if(result.size()<=2)
                     cout<<"error: you have to input attribute name\n";
-                else {
-                    cout<<"display the projection\n" + 
-                          operations::projection(tableMap.at(result[1])).toString();                     
+                else 
+                {
+                    if ( tableMap.find(result[1]) == tableMap.end() and tableMap.find(result[2])==tableMap.end())
+               cout<<"error: the table or tables doesnt exist\n";
+                else
+                {
+                  if(tableMap.at(result[1]).get_tableRSchema().toString()==tableMap.at(result[2]).get_tableRSchema().toString())
+                     cout<<"display the projection\n" << operations::projection(tableMap.at(result[1])).toString();                        
+                    else
+                    {
+                        cout<<"they are not in the same relational schema\n";
+                    }
+                }
                 }
             }    
         }
-
         // revisit implementation
-        else if(result[0]=="select") {
+        else if(result[0]=="select") 
+        {
             if(result.size()<=1)
                 cout<<"error: you have to input the table name\n";
             else {
-                cout<<"display the selected data\n" + 
-                        operations::selection(tableMap.at(result[1])).toString();                
+                if ( tableMap.find(result[1]) == tableMap.end() )
+               cout<<"error: the table or tables doesnt exist\n";
+                else
+                cout<<"display the selected data\n" << operations::selection(tableMap.at(result[1])).toString();                
             }
         }
-
-        else if(result[0]=="njoin") {
+        else if(result[0]=="njoin") 
+        {
             if(result.size()<=1)
                 cout<<"error: insert the first table name\n";
-            else {
+            else 
+            {
                 if(result.size()<=2)
                     cout<<"error: you have to input the second table name\n";
-                else {
-                    cout<<"display the natural join\n" + 
-                          operations::natural_join(tableMap.at(result[1]),
-                                                   tableMap.at(result[2])).toString();
+                else 
+                {
+                    if ( tableMap.find(result[1]) == tableMap.end() and tableMap.find(result[2])==tableMap.end())
+               cout<<"error: the table or tables doesnt exist\n";
+                else
+                {
+                  if(tableMap.at(result[1]).get_tableRSchema().toString()==tableMap.at(result[2]).get_tableRSchema().toString())
+                   cout<<"display the natural join\n" <<operations::natural_join(tableMap.at(result[1]),tableMap.at(result[2])).toString();
+                    
+                    else
+                    {
+                        cout<<"they are not in the same relational schema\n";
+                    }
+                }
                 }
             }    
         }
-
         else if(result[0]=="cls") {
             system("clear");
         }
-
-        else {
+        else 
+        {
             if(result[0]!="exit")
             cout<<"unknown command\n";
         }
-        
         result.clear();
     } while(datainput != "exit");
-
     return 0;
 }
