@@ -1,9 +1,14 @@
 #include "cell.hpp"
 #include "operations.hpp"
+#include "operationsUtest.hpp"
 #include "rSchema.hpp"
+#include "rSchemaUtest.hpp"
 #include "schema.hpp"
+#include "schemaUtest.hpp"
 #include "table.hpp"
+#include "tableUtest.hpp"
 #include "tuples.hpp"
+#include "tupleUtest.hpp"
 #include <boost/variant.hpp>
 #include <iostream>
 #include <set>
