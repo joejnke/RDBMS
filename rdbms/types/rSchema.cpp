@@ -22,4 +22,5 @@ std::string rSchema::toString() {
     std::string info = this->get_name();
     info += "\n";
     info += this->get_attributes().toString();
+    return info;
 }
