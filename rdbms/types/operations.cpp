@@ -6,72 +6,90 @@
 #include <algorithm>
 #include <iostream>
 #include <set>
+#include<string>
 
-table operations::runion(table R1 ,table R2){
-    //conditional statment will not work tuple comparing function must be implimented
-    if (!tuples::isEqual(R1.get_attributes() , R2.get_attributes())){
-        throw "Invalid Table atteribute types can't Union the two tables";
-    }
-
-    table runion (rSchema("R1_R2_union",R1.get_attributes()));
-    for (std::set<tuples, tuplesComparator>::iterator itr1 = R1.get_rows().begin(); itr1 != R1.get_rows().end(); ++itr1) 
-    { 
-         runion.add_row(*itr1);
-    }
-    ////// adding the rows of the second table to the union
-        for (std::set<tuples, tuplesComparator>::iterator itr2 = R2.get_rows().begin(); itr2 != R2.get_rows().end(); ++itr2) 
-    {
-        runion.add_row(*itr2);
-    } 
-
-    return runion;
-}
-
-table operations::intersection(table R1 ,table R2){
-     if (!tuples::isEqual(R1.get_attributes() , R2.get_attributes())){
-        throw "Invalid Table atteribute types can't Union the two tables";
-    }
-
-
-    table intersect_table (rSchema("runion",R1.get_attributes()));
-
-     for (std::set<tuples, tuplesComparator>::iterator itr1 = R1.get_rows().begin(); itr1 != R1.get_rows().end(); ++itr1) 
-    { 
-        for (std::set<tuples, tuplesComparator>::iterator itr2 = R2.get_rows().begin(); itr2 != R2.get_rows().end(); ++itr2) 
-    {
-         if(tuples::isEqual(*itr1,*itr2)){
-         intersect_table.add_row(*itr1);
+table operations::runion(table R1 ,table R2)
+{
+    table t1;
+     for (auto tableRow : R1.get_rows()) {
+         for(auto tableRow1:R2.get_rows())
+         {
+             if (tableRow.toString()!=tableRow1.toString())
+             t1.add_row(tableRow);
          }
-    }
-
-    }
-
-    return intersect_table;
+                     }
+                     for (auto tableRow2 : R2.get_rows()) {
+         for(auto tableRow3:R1.get_rows())
+         {
+             if (tableRow2.toString()!=tableRow3.toString())
+             t1.add_row(tableRow2);
+         }
+                     }
+                     return t1;
 }
-
-table operations::difference(table R1 ,table R2){
-   if (!tuples::isEqual(R1.get_attributes() , R2.get_attributes())){
-        throw "Invalid Table atteribute types can't Union the two tables";
-    }
-    table difference_table (rSchema("runion",R1.get_attributes()));
-
-     for (std::set<tuples, tuplesComparator>::iterator itr1 = R1.get_rows().begin(); itr1 != R1.get_rows().end(); ++itr1) 
-    { 
-        if(R2.get_rows().find(*itr1) == R2.get_rows().end()){
-            difference_table.add_row(*itr1);
-        }
-    }
-    return difference_table;
+table operations::intersection(table R1 ,table R2){
+    table t1;
+    for (auto tableRow : R1.get_rows()) {
+         for(auto tableRow1:R2.get_rows())
+         {
+             if (tableRow.toString()==tableRow1.toString())
+             t1.add_row(tableRow);
+         }
+                     }
+                     for (auto tableRow2 : R2.get_rows()) {
+         for(auto tableRow3:R1.get_rows())
+         {
+             if (tableRow2.toString()==tableRow3.toString())
+             t1.add_row(tableRow2);
+         }
+                     }
+                     return t1;
 }
-
-table operations::projection(table R1){
-    //TODO
+table operations::difference(table R1 ,table R2)
+{
+table t1;
+for (auto tableRow : R1.get_rows()) 
+{
+         for(auto tableRow1:R2.get_rows())
+         {
+             if (tableRow.toString()!=tableRow1.toString())
+             t1.add_row(tableRow);
+         }
 }
-
-table operations::selection(table R1){
-    //TODO
+         return t1;
 }
-
-table operations::natural_join(table R1 ,table R2){
-    //TODO
+table operations::projection(table R1,string P)
+{
+    int g;
+     table t1;
+     int i=0;
+           
+               if(R1.get_tableRSchema().get_attributes().get(0)==P)
+                   g=0;
+              else if(R1.get_tableRSchema().get_attributes().get(1)==P)
+              g=1;
+          for(auto tableRow1:R1.get_rows())
+         {
+               t1.add_row(tuples(tableRow1.get(g),"NULL"));
+         }
+return t1;
+}
+table operations::selection(table R1, string S)
+{
+    table t1;
+       for(auto tableRow1:R1.get_rows())
+         {
+              int itr=0;
+           while (itr<2)
+           {
+               if(tableRow1.get(itr)==S)
+               t1.add_row(tableRow1);
+               itr++;
+           }
+         }
+return t1;
+}
+table operations::natural_join(table table1 ,table table2)
+{
+   throw "not implemented yet\n";
 }

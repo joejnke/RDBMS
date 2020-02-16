@@ -19,7 +19,7 @@ int main(){
     vector<string> result; 
     map<std::string,table> tableMap;
     map<std::string,rSchema> rschemaMap;
-    system("clear");
+     system("clear");
     cout<<"enter the comand separating it with a comma\n";
     do
     {
@@ -89,8 +89,13 @@ int main(){
                 cout<<"error: the table doesnt exist\n";
                 else
                 {
+                    if(result.size()>=5)
+                    cout<<"you cant insert this amount of data in this table\n";
+                    else
+                    {
                     tableMap.at(result[1]).add_row (tuples (result[2], result[3]));
-                    cout<<"data inserted to "<<result[1]<<endl;   
+                    cout<<"data inserted to "<<result[1]<<endl; 
+                    }  
                 }
                 }   
             }
@@ -142,7 +147,8 @@ int main(){
                 {
                      cout<<"table displayed...\n";
                      cout<<tableMap.at(result[1]).get_tableRSchema().toString() <<"\n";
-                     for (auto tableRow : tableMap.at(result[1]).get_rows()) {
+                     for (auto tableRow : tableMap.at(result[1]).get_rows()) 
+                     {
                          cout<<tableRow.toString() << "\n";
                      }
                 }
@@ -163,7 +169,9 @@ int main(){
                 else
                 {
                   if(tableMap.at(result[1]).get_tableRSchema().toString()==tableMap.at(result[2]).get_tableRSchema().toString())
-                    cout<<"display the union\n" << operations::runion(tableMap.at(result[1]), tableMap.at(result[2])).toString();
+                  {  
+                      cout<<"display the union\n"<<operations::runion(tableMap.at(result[1]), tableMap.at(result[2])).toString();
+                     }
                     else
                     {
                         cout<<"they are not in the same relational schema\n";
@@ -233,12 +241,10 @@ int main(){
                cout<<"error: the table or tables doesnt exist\n";
                 else
                 {
-                  if(tableMap.at(result[1]).get_tableRSchema().toString()==tableMap.at(result[2]).get_tableRSchema().toString())
-                     cout<<"display the projection\n" << operations::projection(tableMap.at(result[1])).toString();                        
-                    else
-                    {
-                        cout<<"they are not in the same relational schema\n";
-                    }
+                
+                         cout<<"display the projection\n" << operations::projection(tableMap.at(result[1]),result[2]).toString();  
+                                     
+                 
                 }
                 }
             }    
@@ -251,8 +257,13 @@ int main(){
             else {
                 if ( tableMap.find(result[1]) == tableMap.end() )
                cout<<"error: the table or tables doesnt exist\n";
+            else
+            {
+                if(result.size()<=2)
+                cout<<"error: you have to input the attribute\n";
                 else
-                cout<<"display the selected data\n" << operations::selection(tableMap.at(result[1])).toString();                
+            cout<<"display the selected data\n" << operations::selection(tableMap.at(result[1]),result[2]).toString();
+            }                
             }
         }
         else if(result[0]=="njoin") 

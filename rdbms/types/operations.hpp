@@ -23,9 +23,9 @@ class operations{
     
         static table difference(table R1 ,table R2);
     
-        static table projection(table R1);
+        static table projection(table R1,string P);
     
-        static table selection(table R1);
+        static table selection(table R1 , string S);
     
         static table natural_join(table R1 ,table R2);        
 
