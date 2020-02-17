@@ -28,7 +28,7 @@ rSchema table::get_tableRSchema() {
 }
 
 std::set<cell> table::get_column(std::string attribName) {
-    //TODO;
+    throw "get_column function is not implimented";
 }
 
 void table::add_row(tuples rowTuple) {
