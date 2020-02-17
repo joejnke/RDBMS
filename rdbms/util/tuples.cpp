@@ -62,11 +62,13 @@ cell tuples::get(int index) {
 
 std::string tuples::toString() {
   set<set<cell>>::iterator itr;
-  std::string info;
+  std::string info = "( ";
 
-  // for (int i = 0; i < this->elements.size(); i++) {
-  //   info += std::to_string(this->get(i));
-  // }
+  for (int i = 0; i < this->elements.size(); i++) {
+    info += cellType::toString(this->get(i)) + " ";
+  }
+  
+  info += ")";
 
   return info;
 }

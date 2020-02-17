@@ -23,12 +23,12 @@ tuples table::get_attributes() {
     return this->tableSpec.get_attributes();
 }
 
-std::set<cell> table::get_column(std::string attribName) {
-    //TODO;
+rSchema table::get_tableRSchema() {
+    return this->tableSpec;
 }
 
-std::set<tuples> table::get_rows() {
-    return this->rows;
+std::set<cell> table::get_column(std::string attribName) {
+    //TODO;
 }
 
 void table::add_row(tuples rowTuple) {
@@ -37,4 +37,21 @@ void table::add_row(tuples rowTuple) {
 
 void table::remove_row(tuples rowTuple) {
     this->rows.erase(rowTuple);
+}
+
+std::set<tuples> table::get_rows() {
+    return this->rows;
+}
+
+void table::set_rows(std::set<tuples> rowSet) {
+    this->rows = rowSet;
+}
+
+std::string table::toString() {
+    std::string info = this->get_tableRSchema().toString() + "\n";
+    for (auto row : table::get_rows()) {
+        info += row.toString() + "\n";
+    }
+
+    return info;
 }

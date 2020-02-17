@@ -1,3 +1,6 @@
+#ifndef SCHEMA_H_
+#define SCHEMA_H_
+
 #include "rSchema.hpp"
 #include "table.hpp"
 #include "tuples.hpp"
@@ -20,3 +23,5 @@ class schema {
 
         std::string toString();
 };
+
+#endif  /*SCHEMA_H_*/

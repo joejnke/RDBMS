@@ -1,3 +1,6 @@
+#ifndef RSCHEMA_H_
+#define RSCHEMA_H_
+
 #include "tuples.hpp"
 #include <iostream>
 
@@ -14,6 +17,8 @@ class rSchema {
         std::string get_name();
 
         tuples get_attributes();
+
+        std::string toString();
 };
 
 struct rSchemaComparator {
@@ -21,3 +26,5 @@ struct rSchemaComparator {
         return lhs.get_name() < rhs.get_name();
     }
 };
+
+#endif  /*RSCHEMA_H_*/
