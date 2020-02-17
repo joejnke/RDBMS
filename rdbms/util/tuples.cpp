@@ -20,7 +20,7 @@ set<set<cell>> tuples::get_elements(){
 }
 
 cell tuples::get(int index) {
-  if (index >= this->num_of_elements){
+  if (index >= this->num_of_elements or index < 0){
     throw std::out_of_range ("index out of range ...");
   }  
   
