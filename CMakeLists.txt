@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12.2)
 
-project("RDBMS")
+project("RDBMS" VERSION 1.0)
 #cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 #set(CMAKE_LEGACY_CYGWIN_WIN32 0)
 #enable_testing()
