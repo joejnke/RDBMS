@@ -30,4 +30,11 @@ struct tuplesComparator
         return lhs.get_elements() < rhs.get_elements();
     }
 };
+
+struct tuplesComparator {
+    bool operator()(tuples lhs, tuples rhs) {
+        return lhs.toString() < rhs.toString();
+    }
+};
+
 #endif  /*TUPLES_H_*/
