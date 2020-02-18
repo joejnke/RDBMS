@@ -1,14 +1,12 @@
-#include "../../../rdbms/util/cell.hpp"
-#include "../../../rdbms/util/tuples.hpp"
+#include "cell.hpp"
+#include "operations.hpp"
+#include "rSchema.hpp"
+#include "table.hpp"
+#include "tuples.hpp"
 #include <boost/variant.hpp>
-#include "../../../rdbms/types/rSchema.hpp"
-#include "../../../rdbms/types/table.hpp"
-#include "../../../rdbms/types/operations.hpp"
-#include <string>
-
-
 #include <iostream>
 #include <set>
+#include <string>
 
 
 bool test_return_union()
@@ -22,10 +20,10 @@ bool test_return_union()
 
 
     // create tuples to be inserted to the tables
-    cell elmOne = 30;
-    cell elmTwo = 20;
-    cell elmThree = 30;
-    cell elmFour = 26;
+    cell elmOne = "30";
+    cell elmTwo = "20";
+    cell elmThree = "30";
+    cell elmFour = "26";
     tuples R1_row1 (elmOne, elmTwo);
     tuples R2_row1 = tuples(elmThree, elmFour);
     // add rows to the table
@@ -36,7 +34,7 @@ bool test_return_union()
     // union this tables 
     operations operation_union;
     union_R1_R2 = operation_union.runion(R1, R2);
-    set<tuples> union_values;
+    set<tuples, tuplesComparator> union_values;
     union_values.insert(R1_row1);
     union_values.insert(R2_row1);
 
@@ -58,10 +56,10 @@ bool test_return_intersect()
 
 
     // create tuples to be inserted to the tables
-    cell elmOne = 30;
-    cell elmTwo = 20;
-    cell elmThree = 30;
-    cell elmFour = 20;
+    cell elmOne = "30";
+    cell elmTwo = "20";
+    cell elmThree = "30";
+    cell elmFour = "20";
     tuples R1_row1 (elmOne, elmTwo);
     tuples R2_row1 = tuples(elmThree, elmFour);
     // add rows to the table
@@ -72,7 +70,7 @@ bool test_return_intersect()
     // union this tables 
     operations operation_intersect;
     intersect_R1_R2 = operation_intersect.intersection(R1, R2);
-    set<tuples> intersect_values;
+    set<tuples, tuplesComparator> intersect_values;
     intersect_values.insert(R1_row1);
 
     if(intersect_values == intersect_R1_R2.get_rows()){
@@ -92,12 +90,12 @@ bool test_return_difference()
 
 
     // create tuples to be inserted to the tables
-    cell elmOne = 30;
-    cell elmTwo = 20;
-    cell elmThree = 30;
-    cell elmFour = 20;
-    cell elmFive = 40;
-    cell elmSix = 50;
+    cell elmOne = "30";
+    cell elmTwo = "20";
+    cell elmThree = "30";
+    cell elmFour = "20";
+    cell elmFive = "40";
+    cell elmSix = "50";
     tuples R1_row1 (elmOne, elmTwo);
     tuples R2_row1 = tuples(elmThree, elmFour);
     tuples R1_row2 = tuples(elmFive, elmSix);
@@ -110,7 +108,7 @@ bool test_return_difference()
     // union this tables 
     operations operation_difference;
     difference_R1_R2 = operation_difference.difference(R1, R2);
-    set<tuples> difference_values;
+    set<tuples, tuplesComparator> difference_values;
     difference_values.insert(R1_row2);
     
     if(difference_values == difference_R1_R2.get_rows()){

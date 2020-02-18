@@ -4,54 +4,56 @@
 #include "tuples.hpp"
 #include <iostream>
 #include <set>
-// using namespace std;
+
 
 // constructor
-table::table() {
+table::table() 
+{
 }
-
-table::table(rSchema spec) {
+table::table(rSchema spec) 
+{
     this->tableSpec = spec;
 };
-
 // getter methods
-std::string table::get_table_name() {
+std::string table::get_table_name() 
+{
     return this->tableSpec.get_name();
 }
-
-tuples table::get_attributes() {
+tuples table::get_attributes() 
+{
     return this->tableSpec.get_attributes();
 }
-
-rSchema table::get_tableRSchema() {
+rSchema table::get_tableRSchema() 
+{
     return this->tableSpec;
 }
 
-std::set<cell> table::get_column(std::string attribName) {
+std::set<cell, cellComparator> table::get_column(std::string attribName) 
+{
     throw "get_column function is not implimented";
 }
-
-void table::add_row(tuples rowTuple) {
+void table::add_row(tuples rowTuple) 
+{
     this->rows.insert(rowTuple);
 }
-
-void table::remove_row(tuples rowTuple) {
+void table::remove_row(tuples rowTuple) 
+{
     this->rows.erase(rowTuple);
 }
-
-std::set<tuples> table::get_rows() {
+std::set<tuples, tuplesComparator> table::get_rows() 
+{
     return this->rows;
 }
-
-void table::set_rows(std::set<tuples> rowSet) {
+void table::set_rows(std::set<tuples, tuplesComparator> rowSet) 
+{
     this->rows = rowSet;
 }
-
-std::string table::toString() {
+std::string table::toString() 
+{
     std::string info = this->get_tableRSchema().toString() + "\n";
-    for (auto row : table::get_rows()) {
+    for (auto row : table::get_rows()) 
+    {
         info += row.toString() + "\n";
     }
-
     return info;
 }

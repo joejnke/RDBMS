@@ -95,7 +95,7 @@ It is denoted by:
 
 
 Commands for the Interface
-===============================
+============================
 
 The following commands are supported to use the RDBMS from command line
 
