@@ -62,15 +62,18 @@ table operations::projection(table R1,string P)
 {
     int g;
      table t1;
-     int i=0;
-           
-               if(R1.get_tableRSchema().get_attributes().get(0)==P)
+     int i=R1.get_tableRSchema().get_attributes().get_num_of_elements()-1;
+        while(i>=0)
+            {
+                   if(R1.get_tableRSchema().get_attributes().get(i)==P)
                    g=0;
-              else if(R1.get_tableRSchema().get_attributes().get(1)==P)
+              else if(R1.get_tableRSchema().get_attributes().get(i)==P)
               g=1;
+              i--;
+              }
           for(auto tableRow1:R1.get_rows())
          {
-               t1.add_row(tuples(tableRow1.get(g),"NULL"));
+               t1.add_row(tuples(tableRow1.get(g),""));
          }
 return t1;
 }

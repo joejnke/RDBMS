@@ -16,6 +16,9 @@ tuples::tuples(cell elm1, cell elm2)
   this->elements.insert(set<cell, cellComparator> {elm1});
   this->elements.insert(set<cell, cellComparator> {elm1, elm2});  
 }
+int tuples::get_num_of_elements(){
+  return 2 ;
+}
 set<set<cell, cellComparator>> tuples::get_elements()
 {
   return this->elements;

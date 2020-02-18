@@ -21,6 +21,7 @@ public:
         set<set<cell, cellComparator>> get_elements();
         cell get(int index);
         std::string toString();
+        int get_num_of_elements();
 };
 struct tuplesComparator 
 {
