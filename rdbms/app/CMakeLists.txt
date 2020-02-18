@@ -9,6 +9,3 @@ install(TARGETS rdbms
 DESTINATION bin
 )
 
-install(TARGETS rdbms 
-DESTINATION ${CMAKE_SOURCE_DIR}
-)

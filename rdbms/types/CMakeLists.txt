@@ -9,7 +9,7 @@ ADD_LIBRARY (types SHARED
 target_link_libraries(types util)
 install(TARGETS types 
 RUNTIME DESTINATION bin 
-LIBRARY DESTINATION lib
+LIBRARY DESTINATION bin
 ARCHIVE DESTINATION lib/rdbms
 )
 
@@ -18,4 +18,4 @@ INSTALL(FILES
 	rSchema.hpp
 	table.hpp
 	operations.hpp
-DESTINATION /include/rdbms )
+DESTINATION include/rdbms )

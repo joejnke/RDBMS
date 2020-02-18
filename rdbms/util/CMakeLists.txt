@@ -4,11 +4,11 @@ ADD_LIBRARY (util SHARED
 
 install(TARGETS util 
 RUNTIME DESTINATION bin 
-LIBRARY DESTINATION lib
+LIBRARY DESTINATION bin
 ARCHIVE DESTINATION lib/rdbms
 )
 
 INSTALL(FILES  
 	cell.hpp
 	tuples.hpp
-DESTINATION include/rdbms )
+DESTINATION include/rdbms)
