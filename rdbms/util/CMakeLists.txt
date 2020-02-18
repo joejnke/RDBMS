@@ -1,15 +1,15 @@
-include_directories(${CMAKE_SOURCE_DIR}/../include)
-ADD_LIBRARY (util
+ADD_LIBRARY (util SHARED
 	cell.cpp
 	tuples.cpp
 )
 
-INSTALL (TARGETS util EXPORT TypesTargets
-	DESTINATION "lib${LIB_DIR_SUFFIX}/rdbms"
+install(target util 
+RUNTIME DESTINATION bin 
+LIBRARY DESTINATION lib
+ARCHIVE DESTINATION lib/rdbms
 )
 
-INSTALL (FILES
-    cell.hpp
-    tuples.hpp
-	DESTINATION "include/rdbms/types"
-)
+INSTALL(FILES  
+	cll.hpp
+	tuples.hpp
+DESTINATION include/rdbms )

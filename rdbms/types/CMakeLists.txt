@@ -1,24 +1,21 @@
 include_directories(${CMAKE_SOURCE_DIR}/rdbms/util)
-link_directories(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 
-ADD_LIBRARY (types 
+ADD_LIBRARY (types SHARED
 	schema.cpp
 	rSchema.cpp
     table.cpp
 	operations.cpp
 )
-ADD_DEPENDENCIES(types
-util	
+target_link_libraries(types util)
+install(target types 
+RUNTIME DESTINATION bin 
+LIBRARY DESTINATION lib
+ARCHIVE DESTINATION lib/rdbms
 )
 
-#INSTALL (TARGETS types EXPORT TypesTargets
-#	DESTINATION "lib${LIB_DIR_SUFFIX}/rdbms"
-#)
-
-#INSTALL (FILES
-#    schema.hpp
-#    rSchema.hpp
-#    table.hpp
-#    operations.hpp
-#	DESTINATION "include/rdbms/types"
-#)
+INSTALL(FILES  
+	schema.hpp
+	rSchema.hpp
+	table.hpp
+	operations.hpp
+DESTINATION /include/rdbms )
