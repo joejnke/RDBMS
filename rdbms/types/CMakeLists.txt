@@ -7,7 +7,7 @@ ADD_LIBRARY (types SHARED
 	operations.cpp
 )
 target_link_libraries(types util)
-install(target types 
+install(TARGETS types 
 RUNTIME DESTINATION bin 
 LIBRARY DESTINATION lib
 ARCHIVE DESTINATION lib/rdbms

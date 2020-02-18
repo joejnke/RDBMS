@@ -3,7 +3,7 @@ ADD_LIBRARY (util SHARED
 	tuples.cpp
 )
 
-install(target util 
+install(TARGETS util 
 RUNTIME DESTINATION bin 
 LIBRARY DESTINATION lib
 ARCHIVE DESTINATION lib/rdbms
