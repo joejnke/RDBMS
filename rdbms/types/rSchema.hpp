@@ -4,6 +4,14 @@
 #include <iostream>
 
 
+/**
+* Abstraction of a relational schema
+* 
+* Defines table specification under the 
+* relational database concept. The specification
+* contains name of the relational schema and list
+* of columns a table under such schema will have.
+*/
 class rSchema {
 private:
         std::string name;
@@ -15,6 +23,15 @@ public:
         tuples get_attributes();
         std::string toString();
 };
+
+/**
+* Comparator for instances of the rSchema class.
+*
+* Structure with single function which implements
+* the < operator. 
+* It compares operand rSchemas using their name atrribute
+* using the < operator of std::string.
+*/
 struct rSchemaComparator 
 {
     bool operator()(rSchema lhs, rSchema rhs) 

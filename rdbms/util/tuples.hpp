@@ -9,6 +9,12 @@
 using namespace std;
 
 
+/**
+* Implementation of n-ary tuple.
+*
+* Abstracts the concept of building an
+* n-ary cartesian product based on set theory.
+*/
 class tuples 
 {
 private:
@@ -24,6 +30,14 @@ public:
         int get_num_of_elements();
 };
 
+/**
+* Comparator for instances of the tuple class.
+*
+* Structure with single function which implements
+* the < operator. 
+* It compares string representation of the operand
+* tuples using the < operator of std::string.
+*/
 struct tuplesComparator {
     bool operator()(tuples lhs, tuples rhs) {
         return lhs.toString() < rhs.toString();

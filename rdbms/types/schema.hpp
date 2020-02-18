@@ -6,6 +6,12 @@
 #include <iostream>
 
 
+/**
+* Abstraction of a relational database schema
+* 
+* Builds a container for all the relational schemas
+* contained in an instance of a relational database.
+*/
 class schema {
 private:
         std::set<rSchema, rSchemaComparator> rSchemaSet;

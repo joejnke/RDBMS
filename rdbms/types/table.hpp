@@ -6,6 +6,15 @@
 #include <set>
 
 
+/**
+* Abstraction of relational database table
+* 
+* Implemenation of a relational database table 
+* in a way that every table will have it's own
+* table specification, which is called a relational 
+* schema, and data container for the actual data
+* to be kept in the table. 
+*/
 class table
 {
 private:
@@ -25,6 +34,16 @@ public:
         void set_rows(std::set<tuples, tuplesComparator> rowSet);
         std::string toString();
 };
+
+/**
+* Comparator for instances of the table class.
+*
+* Structure with single function which implements
+* the < operator. 
+* It compares operand tables using name atrribute
+* of their underlaying relational schema using the
+* < operator of std::string.
+*/
 struct tableComparator 
 {
     bool operator()(table lhs, table rhs) 
