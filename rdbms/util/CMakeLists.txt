@@ -1,5 +1,4 @@
 ADD_LIBRARY (util SHARED
-	cell.cpp
 	tuples.cpp
 )
 
