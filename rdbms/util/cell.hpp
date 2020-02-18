@@ -1,3 +1,5 @@
+// Cell implementation -*- C++ -*-
+
 #ifndef CELL_H_
 #define CELL_H_
 #include <boost/variant.hpp>

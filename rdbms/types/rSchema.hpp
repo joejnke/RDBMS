@@ -1,3 +1,5 @@
+// Relational schema implementation -*- C++ -*-
+
 #ifndef RSCHEMA_H_
 #define RSCHEMA_H_
 #include "tuples.hpp"

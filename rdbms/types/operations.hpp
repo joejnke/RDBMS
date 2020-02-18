@@ -1,3 +1,5 @@
+// Relational database managment system operations implementation -*- C++ -*-
+
 #ifndef OPERATIONS_H_
 #define OPERATIONS_H_
 

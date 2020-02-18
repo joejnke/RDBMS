@@ -1,3 +1,5 @@
+// Relational database schema implementation -*- C++ -*-
+
 #ifndef SCHEMA_H_
 #define SCHEMA_H_
 #include "rSchema.hpp"

@@ -1,3 +1,5 @@
+// Relational table implementation -*- C++ -*-
+
 #ifndef TABLE_H_
 #define TABLE_H_
 #include "rSchema.hpp"

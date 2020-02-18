@@ -1,3 +1,5 @@
+// Tuples implementation -*- C++ -*-
+
 #ifndef TUPLES_H_
 #define TUPLES_H_
 
