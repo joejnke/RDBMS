@@ -9,6 +9,6 @@ ARCHIVE DESTINATION lib/rdbms
 )
 
 INSTALL(FILES  
-	cll.hpp
+	cell.hpp
 	tuples.hpp
 DESTINATION include/rdbms )
