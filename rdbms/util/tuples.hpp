@@ -23,13 +23,6 @@ public:
         std::string toString();
         int get_num_of_elements();
 };
-struct tuplesComparator 
-{
-    bool operator()(tuples lhs, tuples rhs) 
-    {
-        return lhs.get_elements() < rhs.get_elements();
-    }
-};
 
 struct tuplesComparator {
     bool operator()(tuples lhs, tuples rhs) {
