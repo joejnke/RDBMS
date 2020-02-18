@@ -20,13 +20,6 @@
 * to the class.
 */
 class operations{
-/*    private:
-        table runion;
-        table intersection;
-        table difference;
-        table projection;
-        table selection;
-        table natural_join;*/
     public:
         static table runion (table R1 ,table R2);
     
