@@ -125,8 +125,8 @@ std::string test_toString() {
     testCount++;
     rSchema testRS ("Student", tuples ("Name", "Age"));    
     table testTable (testRS);
-    testTable.add_row(tuples ("Dibora", 20));
-    testTable.add_row(tuples ("Elias", 24));
+    testTable.add_row(tuples ("Dibora", "20"));
+    testTable.add_row(tuples ("Elias", "24"));
 
     std::string stringToCompare = "Student\n( Name Age )\n( Dibora 20 )\n( Elias 24 )\n";
 
