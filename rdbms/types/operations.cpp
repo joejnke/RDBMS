@@ -11,36 +11,36 @@
 table operations::runion(table R1 ,table R2)
 {
     table t1;
-     for (auto tableRow : R1.get_rows()) {
-         for(auto tableRow1:R2.get_rows())
+     for (auto tableRow_T1 : R1.get_rows()) {
+         for(auto tableRow_T2:R2.get_rows())
          {
-             if (tableRow.toString()!=tableRow1.toString())
-             t1.add_row(tableRow);
+             if (tableRow_T1.toString()!=tableRow_T2.toString())
+             t1.add_row(tableRow_T1);
          }
                      }
-                     for (auto tableRow2 : R2.get_rows()) {
-         for(auto tableRow3:R1.get_rows())
+                     for (auto tableRow_T2 : R2.get_rows()) {
+         for(auto tableRow_T1:R1.get_rows())
          {
-             if (tableRow2.toString()!=tableRow3.toString())
-             t1.add_row(tableRow2);
+             if (tableRow_T2.toString()!=tableRow_T1.toString())
+             t1.add_row(tableRow_T2);
          }
                      }
                      return t1;
 }
 table operations::intersection(table R1 ,table R2){
     table t1;
-    for (auto tableRow : R1.get_rows()) {
-         for(auto tableRow1:R2.get_rows())
+    for (auto tableRow_T1 : R1.get_rows()) {
+         for(auto tableRow_T2:R2.get_rows())
          {
-             if (tableRow.toString()==tableRow1.toString())
-             t1.add_row(tableRow);
+             if (tableRow_T1.toString()==tableRow_T2.toString())
+             t1.add_row(tableRow_T1);
          }
                      }
-                     for (auto tableRow2 : R2.get_rows()) {
-         for(auto tableRow3:R1.get_rows())
+                     for (auto tableRow_T2 : R2.get_rows()) {
+         for(auto tableRow_T1:R1.get_rows())
          {
-             if (tableRow2.toString()==tableRow3.toString())
-             t1.add_row(tableRow2);
+             if (tableRow_T2.toString()==tableRow_T1.toString())
+             t1.add_row(tableRow_T2);
          }
                      }
                      return t1;
@@ -48,12 +48,12 @@ table operations::intersection(table R1 ,table R2){
 table operations::difference(table R1 ,table R2)
 {
 table t1;
-for (auto tableRow : R1.get_rows()) 
+for (auto tableRow_T1 : R1.get_rows()) 
 {
-         for(auto tableRow1:R2.get_rows())
+         for(auto tableRow_T2:R2.get_rows())
          {
-             if (tableRow.toString()!=tableRow1.toString())
-             t1.add_row(tableRow);
+             if (tableRow_T1.toString()!=tableRow_T2.toString())
+             t1.add_row(tableRow_T1);
          }
 }
          return t1;
@@ -71,22 +71,22 @@ table operations::projection(table R1,string P)
               g=1;
               i--;
               }
-          for(auto tableRow1:R1.get_rows())
+          for(auto tableRow_T1:R1.get_rows())
          {
-               t1.add_row(tuples(tableRow1.get(g),""));
+               t1.add_row(tuples(tableRow_T1.get(g),""));
          }
 return t1;
 }
 table operations::selection(table R1, string S)
 {
     table t1;
-       for(auto tableRow1:R1.get_rows())
+       for(auto tableRow_T1:R1.get_rows())
          {
               int itr=0;
            while (itr<2)
            {
-               if(tableRow1.get(itr)==S)
-               t1.add_row(tableRow1);
+               if(tableRow_T1.get(itr)==S)
+               t1.add_row(tableRow_T1);
                itr++;
            }
          }
