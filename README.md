@@ -10,7 +10,7 @@ It is a data base managment system that store structured data using tables(rows 
 
 A relational data model using n-ary relation to store data
 
-    R = $\ \bigg \{(a1,...,an) \bigg | a1 \in A1 ,a2 \in A2, ...,an \in An \bigg \}$
+    R = {(a1,...,an) | a1 E A1 ,a2 E A2, ...,an E An}
 
  ##### where 
  
@@ -51,22 +51,22 @@ Name | Age |Department
 ## Query Operations on RDBMS
 We have six operations on the tables
 
-1. Union -> It is a relation between two tables where the resulting table will contain the information of both tables.
+1. **Union** : It is a relation between two tables where the resulting table will contain the information of both tables.
 
 It is denoted by:
 
-    R1 U R2 = $\ \bigg \{(a1,...,an) \bigg | (a1,..,an) \in R1 \vee (a1,..,an) \in R1 \bigg \}$
+    R1 U R2 = {(a1,...,an) | (a1,...,an) E R1 V (a1,..,an) E R1}
 
-> Note both the tables must have the same relational schema ie. Attributes must match .
+> Note both the tables must have the same relational schema i.e. Attributes must match .
 
   
 
-2. Intersection -> It is a relation between two tables where the resulting table will contain information duplicated in both tables.
+2. **Intersection** : It is a relation between two tables where the resulting table will contain information duplicated in both tables.
 
 It is denoted by:
 
 
-    R1 n R2 = $\ \bigg \{(a1,...,an) \bigg | (a1,..,an) \in R1 \wedge (a1,..,an) \in R1 \bigg \}$
+    R1 n R2 = {(a1,...,an) | (a1,..,an) E R1 & (a1,..,an) E R2 }
 
   
 
@@ -74,21 +74,21 @@ It is denoted by:
 
   
 
-3. Difference -> It is a relation between two tables where the resulting table will contain the information of the first table with out information in second table.
+3. **Difference** : It is a relation between two tables where the resulting table will contain the information of the first table with out information in second table.
 
 It is denoted by:
 
-    R1 - R2 = $\ \bigg \{(a1,...,an) \bigg | (a1,..,an) \in R1 \wedge \neg (a1,..,an) \in R1 \bigg \}$
+    R1 - R2 = {(a1,...,an) | (a1,..,an) E R1 & ~((a1,..,an) E R2)}
 
 >Note both the tables must have the same relational schema ie. Attributes must match .
 
   
 
-4. Projection
+4. **Projection**
 
-5. Selection
+5. **Selection**
 
-6. Natural_join
+6. **Natural join**
 
 ## Commands for the User Interface
 
