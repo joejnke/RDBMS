@@ -27,7 +27,7 @@ class operations{
     
         static table selection(table R1 , string S);
     
-        static table natural_join(table R1 ,table R2);        
+        static table natural_join(table R1 ,table R2, string id1,string id2,string A1 ,string A2);        
 
 };
 

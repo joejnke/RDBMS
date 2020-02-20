@@ -11,36 +11,36 @@
 table operations::runion(table R1 ,table R2)
 {
     table t1;
-     for (auto tableRow : R1.get_rows()) {
-         for(auto tableRow1:R2.get_rows())
+     for (auto tableRow_T1 : R1.get_rows()) {
+         for(auto tableRow_T2:R2.get_rows())
          {
-             if (tableRow.toString()!=tableRow1.toString())
-             t1.add_row(tableRow);
+             if (tableRow_T1.toString()!=tableRow_T2.toString())
+             t1.add_row(tableRow_T1);
          }
                      }
-                     for (auto tableRow2 : R2.get_rows()) {
-         for(auto tableRow3:R1.get_rows())
+                     for (auto tableRow_T2 : R2.get_rows()) {
+         for(auto tableRow_T1:R1.get_rows())
          {
-             if (tableRow2.toString()!=tableRow3.toString())
-             t1.add_row(tableRow2);
+             if (tableRow_T2.toString()!=tableRow_T1.toString())
+             t1.add_row(tableRow_T2);
          }
                      }
                      return t1;
 }
 table operations::intersection(table R1 ,table R2){
     table t1;
-    for (auto tableRow : R1.get_rows()) {
-         for(auto tableRow1:R2.get_rows())
+    for (auto tableRow_T1 : R1.get_rows()) {
+         for(auto tableRow_T2:R2.get_rows())
          {
-             if (tableRow.toString()==tableRow1.toString())
-             t1.add_row(tableRow);
+             if (tableRow_T1.toString()==tableRow_T2.toString())
+             t1.add_row(tableRow_T1);
          }
                      }
-                     for (auto tableRow2 : R2.get_rows()) {
-         for(auto tableRow3:R1.get_rows())
+                     for (auto tableRow_T2 : R2.get_rows()) {
+         for(auto tableRow_T1:R1.get_rows())
          {
-             if (tableRow2.toString()==tableRow3.toString())
-             t1.add_row(tableRow2);
+             if (tableRow_T2.toString()==tableRow_T1.toString())
+             t1.add_row(tableRow_T2);
          }
                      }
                      return t1;
@@ -48,12 +48,12 @@ table operations::intersection(table R1 ,table R2){
 table operations::difference(table R1 ,table R2)
 {
 table t1;
-for (auto tableRow : R1.get_rows()) 
+for (auto tableRow_T1 : R1.get_rows()) 
 {
-         for(auto tableRow1:R2.get_rows())
+         for(auto tableRow_T2:R2.get_rows())
          {
-             if (tableRow.toString()!=tableRow1.toString())
-             t1.add_row(tableRow);
+             if (tableRow_T1.toString()!=tableRow_T2.toString())
+             t1.add_row(tableRow_T1);
          }
 }
          return t1;
@@ -66,33 +66,102 @@ table operations::projection(table R1,string P)
         while(i>=0)
             {
                    if(R1.get_tableRSchema().get_attributes().get(i)==P)
-                   g=0;
-              else if(R1.get_tableRSchema().get_attributes().get(i)==P)
-              g=1;
+                  { 
+                      g=i;
+                      break;
+                   }
+              else
               i--;
               }
-          for(auto tableRow1:R1.get_rows())
+          for(auto tableRow_T1:R1.get_rows())
          {
-               t1.add_row(tuples(tableRow1.get(g),""));
+               t1.add_row(tuples(tableRow_T1.get(g),tableRow_T1.get(g)));
          }
 return t1;
 }
 table operations::selection(table R1, string S)
 {
     table t1;
-       for(auto tableRow1:R1.get_rows())
+       for(auto tableRow_T1:R1.get_rows())
          {
               int itr=0;
            while (itr<2)
            {
-               if(tableRow1.get(itr)==S)
-               t1.add_row(tableRow1);
+               if(tableRow_T1.get(itr)==S)
+               t1.add_row(tableRow_T1);
                itr++;
            }
          }
 return t1;
 }
-table operations::natural_join(table table1 ,table table2)
+table operations::natural_join(table table1 ,table table2, string id1,string id2, string A1 ,string A2)
 {
-   throw "not implemented yet\n";
+   int g,n,s=0,id_n1,id_n2;
+     table t1;
+     int i=table1.get_tableRSchema().get_attributes().get_num_of_elements()-1;
+     int l=table2.get_tableRSchema().get_attributes().get_num_of_elements()-1;
+     int i1=table1.get_tableRSchema().get_attributes().get_num_of_elements()-1;
+     int l1=table2.get_tableRSchema().get_attributes().get_num_of_elements()-1;
+        while(i1>=0)
+            {
+                   if(table1.get_tableRSchema().get_attributes().get(i1)==id1)
+                  { 
+                      id_n1=i1;
+                      break;
+                      }
+              else 
+              i1--;
+              }
+                while(l1>=0)
+            {
+                   if(table2.get_tableRSchema().get_attributes().get(l1)==id2)
+                   {
+                         id_n2=l1;
+                         break;
+                   }
+                    else
+              l1--;
+            }
+        while(i>=0)
+            {
+                   if(table1.get_tableRSchema().get_attributes().get(i)==A1)
+                  { 
+                      g=i;
+                      break;
+                      }
+              else 
+              i--;
+              }
+              while(l>=0)
+            {
+                   if(table2.get_tableRSchema().get_attributes().get(l)==A2)
+                   {
+                         n=l;
+                         break;
+                   }
+                    else
+              l--;
+            }
+                int v=0;
+             for(auto tableRow_T1:table1.get_rows())
+         {
+              for(auto tableRow_T2:table2.get_rows())
+         {
+             if(s>0)
+                 s--;
+             else
+               {
+                   if(tableRow_T1.get(id_n1)== tableRow_T2.get(id_n2))
+              {
+                t1.add_row(tuples(tableRow_T1.get(g), tableRow_T2.get(n)));
+               break;
+               }
+               else
+               break;
+               }
+         }
+         v++;
+         s=v;
+         }
+return t1;
 }

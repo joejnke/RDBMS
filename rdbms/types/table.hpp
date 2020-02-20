@@ -22,6 +22,7 @@ public:
         void add_row(tuples rowTuple);
         void remove_row(tuples rowTuple);
         std::set<tuples, tuplesComparator> get_rows();
+         int get_rows_size(table T);
         void set_rows(std::set<tuples, tuplesComparator> rowSet);
         std::string toString();
 };
