@@ -1,5 +1,5 @@
-include_directories(${CMAKE_SOURCE_DIR}/rdbms/types)
-include_directories(${CMAKE_SOURCE_DIR}/rdbms/util)
+include_directories(${CMAKE_SOURCE_DIR}/types)
+include_directories(${CMAKE_SOURCE_DIR}/util)
 
 link_directories(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 
@@ -11,3 +11,4 @@ target_link_libraries(rdbms_app
                         schema.lib
                         table.lib
                         tuples.lib)
+                        

@@ -1,4 +1,4 @@
-include_directories(${CMAKE_SOURCE_DIR}/rdbms/util)
+include_directories(${CMAKE_SOURCE_DIR}/util)
 
 link_directories(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 
