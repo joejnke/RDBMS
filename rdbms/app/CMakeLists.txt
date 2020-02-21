@@ -13,4 +13,4 @@ target_link_libraries(rdbms_app
                         tuples.a)
 
 install(TARGETS rdbms_app
-        RUNTIME DESTINATION "${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}/..")
+        RUNTIME DESTINATION bin)

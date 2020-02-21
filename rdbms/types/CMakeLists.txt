@@ -28,4 +28,4 @@ target_link_libraries(operations
                         tuples.a)
 
 install(TARGETS rSchema table schema operations
-        ARCHIVE DESTINATION "${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}")
+        ARCHIVE DESTINATION lib/rdbms)
