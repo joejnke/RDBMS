@@ -6,9 +6,9 @@ link_directories(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 add_executable(rdbms_app app.cpp)
 
 target_link_libraries(rdbms_app 
-                        operations.lib 
-                        rSchema.lib
-                        schema.lib
-                        table.lib
-                        tuples.lib)
+                        operations.a 
+                        rSchema.a
+                        schema.a
+                        table.a
+                        tuples.a)
                         
