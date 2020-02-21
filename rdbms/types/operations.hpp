@@ -1,3 +1,5 @@
+// Relational database managment system operations implementation -*- C++ -*-
+
 #ifndef OPERATIONS_H_
 #define OPERATIONS_H_
 
@@ -8,14 +10,18 @@
 #include <iostream>
 #include <set>
 #include <algorithm>
+
+
+/**
+* Set of operations suported.
+*
+* Container for operations which are supported by the 
+* relational database managment system. Every operation
+* works based on the concepts of mathimatical, set and
+* propositional theories. All the operations are static
+* to the class.
+*/
 class operations{
-/*    private:
-        table runion;
-        table intersection;
-        table difference;
-        table projection;
-        table selection;
-        table natural_join;*/
     public:
         static table runion (table R1 ,table R2);
     
