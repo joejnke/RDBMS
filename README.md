@@ -164,11 +164,16 @@ The following commands are supported to use the RDBMS from command line
 ## Building and Installing
 
 Perform the following steps at the shell prompt:
-```
-cd /to/project/root_dir
-mkdir build
-cd build
-cmake ..
-make -j
-sudo make install
-```
+> ```cd /to/project/root_dir```
+
+> ```mkdir build```
+
+> ```cd build```
+
+> ```cmake ..```
+
+> ```make -j```
+
+> ```sudo make install``` *# install in /usr/local*
+
+> ```make DESTDIR=/installation/path/ install``` *# install in user defined directory. e.g: ~/Desktop/rdbms*
