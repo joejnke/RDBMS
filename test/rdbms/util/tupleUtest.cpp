@@ -148,14 +148,11 @@ std::string test_toString() {
     return  testResult;    
 };
 
-int main() {
-    cout<<"\n<<<<<<<<<<<<<<< Test tuples class >>>>>>>>>>>>>>>>\n";
-    cout<< test_default_constructor() <<"\n";
-    cout<< test_parametrized_constructor() <<"\n";
-    cout<< test_isEqual() <<"\n";
-    cout<< test_get_elements() <<"\n";
-    cout<< test_get() <<"\n";
-    cout<< test_toString();
-    cout<<"\n\nPassed " << passedTestCount << "/" << testCount<<" tests";
-    cout<<"\n<<<<<<<<<<< end of tuples class test >>>>>>>>>>>>>\n";
+int get_tuplesTestCount() {
+    return testCount;
 }
+
+int get_tuplesPassedTestCount() {
+    return passedTestCount;
+}
+
