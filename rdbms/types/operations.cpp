@@ -79,18 +79,25 @@ table operations::projection(table R1,string P)
          }
 return t1;
 }
-table operations::selection(table R1, string S)
+table operations::selection(table R1,string A, string S)
 {
     table t1;
+     int itr;
+              int i1=R1.get_tableRSchema().get_attributes().get_num_of_elements()-1;
+              while(i1>=0)
+            {
+                   if(R1.get_tableRSchema().get_attributes().get(i1)==A)
+                  { 
+                      itr=i1;
+                      break;
+                      }
+              else 
+              i1--;
+              }
        for(auto tableRow_T1:R1.get_rows())
          {
-              int itr=0;
-           while (itr<2)
-           {
                if(tableRow_T1.get(itr)==S)
                t1.add_row(tableRow_T1);
-               itr++;
-           }
          }
 return t1;
 }

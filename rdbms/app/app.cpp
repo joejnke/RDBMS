@@ -263,7 +263,12 @@ int main(){
                 if(result.size()<=2)
                 cout<<"error: you have to input the attribute\n";
                 else
-            cout<<"display the selected data\n" << operations::selection(tableMap.at(result[1]),result[2]).toString();
+          { 
+               if(result.size()<=3)
+                cout<<"error: you have to input the data to be selected\n";
+                else
+               cout<<"display the selected data\n" << operations::selection(tableMap.at(result[1]),result[2],result[3]).toString();
+          }
             }                
             }
         }
