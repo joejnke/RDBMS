@@ -23,6 +23,7 @@ int main(){
     cout<<"enter the comand separating it with a comma\n";
     do
     {
+        cout<<">>  ";
         cin>>datainput;
         boost::algorithm::to_lower(datainput);
         boost::split(result, datainput, boost::is_any_of(",")); 
