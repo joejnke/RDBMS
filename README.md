@@ -19,15 +19,15 @@ A relational data model using n-ary relation to store data
  - Rows are n-tuples
  - Columns/Atributes comes from a defined set called Domain
 
-##### Each attribute requires a uniqu identifier/name
+##### Each attribute requires a unique identifier/name
 
   
 
-## Relational Schima and Relational instance
-A relational Schima contains the table name and it's atribute name.
+## Relational Schema and Relational instance
+A relational Schema contains the table name and it's atribute name.
 
 A relational instance is a set of finite tuples created with a predefined schema.
-Look at the example below,it is the relational schima where table name is student and Name,Age and Department are Attributes.
+Look at the example below,it is the relational schema where table name is student and Name,Age and Department are Attributes.
 
   
 
@@ -35,7 +35,7 @@ Look at the example below,it is the relational schima where table name is studen
 ----------|-------|------
 |Name |Age |Department |
 
-Based on this relational Schima we can create a table that of students info.
+Based on this relational Schema we can create a table that of students info.
 
   
 
@@ -84,11 +84,30 @@ It is denoted by:
 
   
 
-4. **Projection**
+4. **Projection** : It is a relation created with the attributes provided by the user, the resulting table will give the data with in the provided attributes.
 
-5. **Selection**
+It is denoted by:
 
-6. **Natural join**
+    Pi(A1,A2,......,An) R1 = {(a1,.....,an)| (b1,....,bn) E R1 ^ (a1 = b1,....am = bm)}
+
+>Note the attributes given by the user should be found in the relation
+
+5. **Selection** : It is a relation created with the attributes provided by the user and some additional criteria, the resulting table will give the data with in the attributes that fulfill the given criteria.
+
+It is denoted by:
+
+    Tproposition (R1) = {(a1,a2,......an)|(a1,a2,.....an) E R1 ^ (proposition)}
+
+>Note the attributes given by the user should be found in the relation
+
+6. **Natural join** : It is a relation between two tables where the resulting table will contain data based on the common columns of the two tables that are being joined.
+
+It is denoted by:
+
+    R1 |X| R2 = Pi(a1,a2,...an)|(a1,a2,.....an) E R1 ^ (a1,a2,.....an) E R2 ^ (T R1.A1 = R2.A2 = ...= Rn.An)
+
+Note the two relations should have common attributes
+
 
 ## Commands for the User Interface
 
@@ -152,10 +171,10 @@ The following commands are supported to use the RDBMS from command line
     >e.g: ```select,Attendance,Age,25```    
     where ```Attendance``` is name of the table to select from, ```Age``` is the column used for selection and ```25``` is the value at the selection column.
 12. Natural Join of the two tables
-    >```Njoin,<first table name>,<second table name>```
+    >```Njoin,<first table name>,<second table name>,<attrib from first table>,<attrib from second table>```
 
-    >e.g: ```Njoin,Attendance,Grade```    
-    where ```Attendance``` is name of the first table and ```Grade``` is name of the second table.
+    >e.g: ```Njoin,Attendance,Grade,Name,Age```    
+    where ```Attendance``` is name of the first table, ```Grade``` is name of the second table, ```Name``` is the joining attribute of the first table and ```Age``` is the joining attribute of the second table.
 13. Clear screen
     >```cls```
 14. Exit the program
