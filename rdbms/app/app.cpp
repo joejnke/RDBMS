@@ -49,7 +49,7 @@ int main(){
                 else
                 {
                         tableMap.emplace(result[2],table (rschemaMap.at(result[3])));
-                        cout<<result[3]<<" table created\n";
+                        cout<<result[2]<<" table created\n";
                         result.clear();
                 }
                     }
@@ -180,7 +180,7 @@ int main(){
                 }
             }    
         }
-        else if(result[0]=="intersection") 
+        else if(result[0]=="intersect") 
         {
             if(result.size()<=1)
                 cout<<"error: insert the first table name\n";
@@ -280,13 +280,27 @@ int main(){
                cout<<"error: the table or tables doesnt exist\n";
                 else
                 {
-                  if(tableMap.at(result[1]).get_tableRSchema().toString()==tableMap.at(result[2]).get_tableRSchema().toString())
-                   cout<<"display the natural join\n" <<operations::natural_join(tableMap.at(result[1]),tableMap.at(result[2])).toString();
-                    
+                    if(result.size()<=3)
+                    cout<<"error: you have to input the comparators\n";
                     else
-                    {
-                        cout<<"they are not in the same relational schema\n";
-                    }
+                   {
+                       if(result.size()<=4)
+                       cout<<"error: you have to input the second comparator and the atrributes\n";
+                       else
+                       {
+                           if(result.size()<=5)
+                           cout<<"error: you have to input the atributes\n";
+                           else
+                           {
+                               if(result.size()<=6)
+                               cout<<"error: you have to input the second attribute\n";
+                               else
+                               {
+                                   cout<<"display the natural join\n" <<operations::natural_join(tableMap.at(result[1]),tableMap.at(result[2]),result[3],result[4],result[5],result[6]).toString();
+               }
+               }
+                }
+                }
                 }
                 }
             }    
