@@ -171,10 +171,10 @@ The following commands are supported to use the RDBMS from command line
     >e.g: ```select,Attendance,Age,25```    
     where ```Attendance``` is name of the table to select from, ```Age``` is the column used for selection and ```25``` is the value at the selection column.
 12. Natural Join of the two tables
-    >```Njoin,<first table name>,<second table name>,<attrib from first table>,<attrib from second table>```
+    >```njoin,<table1 name>,<table2 name>,<comp1>,<comp2>,<joining atribute from the 1st table>,<joining atribute from the second table>```
 
-    >e.g: ```Njoin,Attendance,Grade,Name,Age```    
-    where ```Attendance``` is name of the first table, ```Grade``` is name of the second table, ```Name``` is the joining attribute of the first table and ```Age``` is the joining attribute of the second table.
+    >e.g: ```Njoin,Attendance,Grade,Name,Name,Id,GPA```    
+    where ```Attendance``` is name of the first table, ```Grade``` is name of the second table, ```Name``` is the attribute from the 1st table which we will use to compare it to the secont tablei,```Name```is the attribute from the 2nd table,which we will use to compare it to the 1st table, ```Id``` is the joining attribute of the first table and ```GPA``` is the joining attribute of the second table.
 13. Clear screen
     >```cls```
 14. Exit the program
