@@ -115,10 +115,10 @@ int main(){
                         cout<<"error: you have to insert the row to be removed\n";
                     else
                      {
-                          if ( tableMap.find(result[1]) == tableMap.end() )
+                          if ( tableMap.find(result[2]) == tableMap.end() )
                 cout<<"error: the table doesnt exist\n";
                 else
-                        tableMap.at(result[1]).remove_row(tuples (result[3], result[4]));
+                        tableMap.at(result[2]).remove_row(tuples (result[3], result[4]));
                         cout<<"data removed from: "<<result[2]<<endl;
                     }   
                 }
