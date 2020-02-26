@@ -25,10 +25,11 @@ int main(){
     {
         cout<<">>  ";
         cin>>datainput;
-        boost::algorithm::to_lower(datainput);
-        boost::split(result, datainput, boost::is_any_of(",")); 
+        boost::split(result, datainput, boost::is_any_of(","));
+        boost::algorithm::to_lower(result[0]);
         if(result[0]=="create") 
         {
+            boost::algorithm::to_lower(result[1]);
             if(result.size()<=1) 
             {
                 cout<<"error: you have to specify what you want to do\n";
@@ -103,6 +104,7 @@ int main(){
         }
         else if (result[0]=="remove") 
         {
+            boost::algorithm::to_lower(result[1]);
             if(result.size()<=1)
                 cout<<"error: you have to specify what you want to remove\n";
             else if(result[1]=="row") 
