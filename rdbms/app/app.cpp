@@ -136,7 +136,7 @@ int main(){
                      if ( tableMap.find(result[2]) == tableMap.end() )
                 cout<<"error: the table doesnt exist\n";
                 else
-                    throw "not implemented yet\n";
+                    cout<< "not implemented yet\n";
                 }
             }
             else
