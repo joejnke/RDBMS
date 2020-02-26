@@ -139,6 +139,10 @@ int main(){
                     throw "not implemented yet\n";
                 }
             }
+            else
+            {
+                cout << "unknown " << result[2] << " command\n";
+            }
         }
         else if(result[0]=="display") 
         {
