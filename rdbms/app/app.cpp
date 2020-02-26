@@ -274,7 +274,28 @@ int main(){
                if(result.size()<=3)
                 cout<<"error: you have to input the data to be selected\n";
                 else
-               cout << operations::selection(tableMap.at(result[1]),result[2],result[3]).toString();
+             {
+                 int  itr;
+                 int i1 = tableMap.at(result[1]).get_tableRSchema().get_attributes().get_num_of_elements() - 1;
+                 while (i1 >= 0)
+                 {
+                     if (tableMap.at(result[1]).get_tableRSchema().get_attributes().get(i1) == result[2])
+                     {
+                         itr = i1;
+                         break;
+                     }
+                     else
+                         i1--;
+                 }
+                 for (auto tableRow_T1 : tableMap.at(result[1]).get_rows())
+                 {
+                     if (tableRow_T1.get(itr) == result[3]){
+                         cout << operations::selection(tableMap.at(result[1]), result[2], result[3]).toString();
+                         break;
+                         }
+                 }
+                 cout<<result[3]<<" doesn't exist in "<<result[2]<<endl;
+             }
           }
             }                
             }
