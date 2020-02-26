@@ -154,7 +154,6 @@ int main(){
                 cout<<"error: the table doesnt exist\n";
                 else
                 {
-                     cout<<"table displayed...\n";
                      cout<<tableMap.at(result[1]).get_tableRSchema().toString() <<"\n";
                      for (auto tableRow : tableMap.at(result[1]).get_rows()) 
                      {
@@ -179,7 +178,7 @@ int main(){
                 {
                   if(tableMap.at(result[1]).get_tableRSchema().toString()==tableMap.at(result[2]).get_tableRSchema().toString())
                   {  
-                      cout<<"display the union\n"<<operations::runion(tableMap.at(result[1]), tableMap.at(result[2])).toString();
+                      cout<<operations::runion(tableMap.at(result[1]), tableMap.at(result[2])).toString();
                      }
                     else
                     {
@@ -203,7 +202,7 @@ int main(){
                 else
                 {
                   if(tableMap.at(result[1]).get_tableRSchema().toString()==tableMap.at(result[2]).get_tableRSchema().toString())
-                    cout<<"display the intersection\n" << operations::intersection(tableMap.at(result[1]),tableMap.at(result[2])).toString();   
+                    cout << operations::intersection(tableMap.at(result[1]),tableMap.at(result[2])).toString();   
                     else
                     {
                         cout<<"they are not in the same relational schema\n";
@@ -227,7 +226,7 @@ int main(){
                 else
                 {
                   if(tableMap.at(result[1]).get_tableRSchema().toString()==tableMap.at(result[2]).get_tableRSchema().toString())
-                     cout<<"display the difference\n" <<operations::difference(tableMap.at(result[1]),tableMap.at(result[2])).toString();   
+                     cout <<operations::difference(tableMap.at(result[1]),tableMap.at(result[2])).toString();   
                     else
                     {
                         cout<<"they are not in the same relational schema\n";
@@ -251,7 +250,7 @@ int main(){
                 else
                 {
                 
-                         cout<<"display the projection\n" << operations::projection(tableMap.at(result[1]),result[2]).toString();  
+                         cout << operations::projection(tableMap.at(result[1]),result[2]).toString();  
                                      
                  
                 }
@@ -275,7 +274,7 @@ int main(){
                if(result.size()<=3)
                 cout<<"error: you have to input the data to be selected\n";
                 else
-               cout<<"display the selected data\n" << operations::selection(tableMap.at(result[1]),result[2],result[3]).toString();
+               cout << operations::selection(tableMap.at(result[1]),result[2],result[3]).toString();
           }
             }                
             }
@@ -310,7 +309,7 @@ int main(){
                                cout<<"error: you have to input the second attribute\n";
                                else
                                {
-                                   cout<<"display the natural join\n" <<operations::natural_join(tableMap.at(result[1]),tableMap.at(result[2]),result[3],result[4],result[5],result[6]).toString();
+                                   cout <<operations::natural_join(tableMap.at(result[1]),tableMap.at(result[2]),result[3],result[4],result[5],result[6]).toString();
                }
                }
                 }
