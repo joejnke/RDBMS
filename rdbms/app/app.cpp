@@ -165,6 +165,19 @@ int main()
                 }
             }
         }
+        else if(result[0]=="database")
+        {
+            cout<<"\nlist of relational schemas\n";
+            for (auto const &pair : rschemaMap)
+            {
+                std::cout <<  pair.first << "\n";
+            }
+            cout<<"\nlist of tables\n";
+            for (auto const &pair : tableMap)
+            {
+                std::cout <<  pair.first << "\n";
+            }
+        }
         else if (result[0] == "union")
         {
             if (result.size() <= 1)
