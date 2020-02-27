@@ -136,7 +136,10 @@ int main()
                     if (tableMap.find(result[2]) == tableMap.end())
                         cout << "error: the table doesnt exist\n";
                     else
-                        cout << "not implemented yet\n";
+                        {
+                            tableMap.erase(result[2]);
+                            cout<<result[2]<<" table removed\n";
+                        }
                 }
             }
             else
