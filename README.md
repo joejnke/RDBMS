@@ -320,9 +320,51 @@ The following commands are supported to use the RDBMS from command line
         ( Elias 5 )
         ( Kirub 4 )
 
-13. Clear screen
+13. Display all relational schemas and meta data of the tables in the database.
+    >```database```
+
+    *Output:*
+
+        Relational Schemas:
+        ===================
+        Attendance
+        ( ID_num Number_of_present )
+
+        Contact
+        ( Name Email )
+
+        Grade
+        ( ID_num Points )
+
+        ID
+        ( Name ID_num )
+
+
+        Tables:
+        =======
+        Student
+        ID
+        ( Name ID_num )
+
+        Students_contact
+        Contact
+        ( Name Email )
+
+        Team_leader
+        ID
+        ( Name ID_num )
+
+        Training_attendance
+        Attendance
+        ( ID_num Number_of_present )
+
+        Training_grade
+        Grade
+        ( ID_num Points )          
+ 
+14. Clear screen
     >```cls```
-14. Exit the program
+15. Exit the program
     >```exit```
 
 ## Building and Installing
