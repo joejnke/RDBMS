@@ -116,14 +116,14 @@ The following commands are supported to use the RDBMS from command line
  1. Create a relational schema with the specified name and attributes list
     >```create,rschema,<rschema name>,<list of column names>```
 
-    >e.g: ```create,rschema,ID,Name,ID_num```    
-    where ```ID``` is rschema name and ```Name,ID_num``` is list of column names.
+    >e.g: ```create,rschema,ID,Name,ID-num```    
+    where ```ID``` is rschema name and ```Name,ID-num``` is list of column names.
         
     **more examples**:
         
-        create,rschema,Attendance,ID_num,Number_of_present
+        create,rschema,Attendance,ID-num,Number-of-present
         create,rschema,Contact,Name,Email
-        create,rschema,Grade,ID_num,Points
+        create,rschema,Grade,ID-num,Points
 
 2. Create an empty table with a given table name and table specification (i.e. relational schema)
     >```create,table,<table name>,<name of rschema>```
@@ -133,10 +133,10 @@ The following commands are supported to use the RDBMS from command line
             
     **more examples**:
         
-        create,table,Training_attendance,Attendance
-        create,table,Training_grade,Grade
-        create,table,Students_contact,Contact
-        create,table,Team_leader,ID
+        create,table,Training-attendance,Attendance
+        create,table,Training-grade,Grade
+        create,table,Students-contact,Contact
+        create,table,Team-leader,ID
 
 3. Insert a row into an existing table
     >```insert,<table name>,<row to insert>```
@@ -150,24 +150,24 @@ The following commands are supported to use the RDBMS from command line
         insert,Student,Bemhreth,G1T33
         insert,Student,Dibora,G1T34
         
-        insert,Training_attendance,G1T31,4 
-        insert,Training_attendance,G1T32,5 
-        insert,Training_attendance,G1T33,6
-        insert,Training_attendance,G1T34,5
+        insert,Training-attendance,G1T31,4 
+        insert,Training-attendance,G1T32,5 
+        insert,Training-attendance,G1T33,6
+        insert,Training-attendance,G1T34,5
         
-        insert,Training_grade,G1T31,18.5 
-        insert,Training_grade,G1T32,19.5
-        insert,Training_grade,G1T33,19
-        insert,Training_grade,G1T34,20
+        insert,Training-grade,G1T31,18.5 
+        insert,Training-grade,G1T32,19.5
+        insert,Training-grade,G1T33,19
+        insert,Training-grade,G1T34,20
 
-        insert,Students_contact,Kirub,joejnke@gmail.com 
-        insert,Students_contact,Elias,tsegawelias@gmail.com
-        insert,Students_contact,Bemhreth,bemhretgezahegn@gmail.com
-        insert,Students_contact,Dibora,deborahaile3@gmail.com
+        insert,Students-contact,Kirub,joejnke@gmail.com 
+        insert,Students-contact,Elias,tsegawelias@gmail.com
+        insert,Students-contact,Bemhreth,bemhretgezahegn@gmail.com
+        insert,Students-contact,Dibora,deborahaile3@gmail.com
 
-        insert,Team_leader,Elias,G1T32
-        insert,Team_leader,Arsema,G4T34
-        insert,Team_leader,Brook,G2T33
+        insert,Team-leader,Elias,G1T32
+        insert,Team-leader,Arsema,G4T34
+        insert,Team-leader,Brook,G2T33
 
 4. Display data stored in a table
     >```display,<table name>```
@@ -178,7 +178,7 @@ The following commands are supported to use the RDBMS from command line
     *Output*:
     
         ID
-        ( Name ID_num )
+        ( Name ID-num )
         ( Bemhreth G1T33 )
         ( Dibora G1T34 )
         ( Elias G1T32 )
@@ -186,21 +186,21 @@ The following commands are supported to use the RDBMS from command line
                 
     **more examples**:
         
-        display,Training_attendance
-        display,Training_grade
-        display,Students_contact
+        display,Training-attendance
+        display,Training-grade
+        display,Students-contact
 
     *Outputs with the above command order*:
 
         Attendance
-        ( ID_num Number_of_present )
+        ( ID-num Number-of-present )
         ( G1T31 4 )
         ( G1T32 5 )
         ( G1T33 6 )
         ( G1T34 5 )
 
         Grade
-        ( ID_num Points )
+        ( ID-num Points )
         ( G1T31 18.5 )
         ( G1T32 19.5 )
         ( G1T33 19 )
@@ -235,8 +235,8 @@ The following commands are supported to use the RDBMS from command line
 7. Union of two tables
     >```union,<first table name>,<second table name>```
 
-    >e.g: ```union,Student,Team_leader```    
-    where ```Student``` is name of the first table and ```Students_contact``` is name of the second table.
+    >e.g: ```union,Student,Team-leader```    
+    where ```Student``` is name of the first table and ```Students-contact``` is name of the second table.
 
     *Output:*
 
@@ -251,8 +251,8 @@ The following commands are supported to use the RDBMS from command line
 8. Intersection of two tables
     >```intersect,<first table name>,<second table name>```
 
-    >e.g: ```intersect,Student,Team_leader```    
-    where ```Student``` is name of the first table and ```Team_leader``` is name of the second table. 
+    >e.g: ```intersect,Student,Team-leader```    
+    where ```Student``` is name of the first table and ```Team-leader``` is name of the second table. 
 
     *Output:*
 
@@ -262,8 +262,8 @@ The following commands are supported to use the RDBMS from command line
 9. Difference of two tables
     >```difference,<first table name>,<second table name>```
 
-    >e.g: ```difference,Student,Team_leader```    
-    where ```Student``` is name of the first table and ```Team_leader``` is name of the second table
+    >e.g: ```difference,Student,Team-leader```    
+    where ```Student``` is name of the first table and ```Team-leader``` is name of the second table
 
     *Output:*
 
@@ -276,8 +276,8 @@ The following commands are supported to use the RDBMS from command line
 10. Projection of a table on to a list of attributes (i.e. columns)
     >```project,<table name>,<list of column names>```
 
-    >e.g: ```project,Students_contact,Email```    
-    where ```Students_contact``` is the table name and ```Email``` is columns list with single column names.
+    >e.g: ```project,Students-contact,Email```    
+    where ```Students-contact``` is the table name and ```Email``` is columns list with single column names.
     
     *Output:*
 
@@ -291,8 +291,8 @@ The following commands are supported to use the RDBMS from command line
 11. Select a row from a table with a given value for a column
     >```select,<table name>,<column name>,<value>```
 
-    >e.g: ```select,Training_grade,ID_num,G1T32```    
-    where ```Training_grade``` is name of the table to select from, ```ID_num``` is the column used for selection and ```G1T32``` is the value at the selection column.
+    >e.g: ```select,Training-grade,ID-num,G1T32```    
+    where ```Training-grade``` is name of the table to select from, ```ID-num``` is the column used for selection and ```G1T32``` is the value at the selection column.
 
     *Output:*
 
@@ -302,15 +302,15 @@ The following commands are supported to use the RDBMS from command line
 12. Natural Join of two tables
     >```njoin,<table1 name>,<table2 name>,<comp1>,<comp2>,<joining atribute from the 1st table>,<joining atribute from the second table>```
 
-    >e.g: ```Njoin,Student,Training_attendance,ID_num,ID_num,Name,Number_of_present```    
+    >e.g: ```Njoin,Student,Training-attendance,ID-num,ID-num,Name,Number-of-present```    
     
     where: 
 
-        "Student" is name of the first table, "Training_attendance" is name of the second table, 
-        "ID_num" is the attribute from the first table which we will use to compare it to the second table,
-        "ID_num" is the attribute from the second table,which we will use to compare it to the first table,
+        "Student" is name of the first table, "Training-attendance" is name of the second table, 
+        "ID-num" is the attribute from the first table which we will use to compare it to the second table,
+        "ID-num" is the attribute from the second table,which we will use to compare it to the first table,
         "Name" is the joining attribute of the first table and
-        "Number_of_present" is the joining attribute of the second table.
+        "Number-of-present" is the joining attribute of the second table.
 
     *Output:*
     
@@ -328,39 +328,39 @@ The following commands are supported to use the RDBMS from command line
         Relational Schemas:
         ===================
         Attendance
-        ( ID_num Number_of_present )
+        ( ID-num Number-of-present )
 
         Contact
         ( Name Email )
 
         Grade
-        ( ID_num Points )
+        ( ID-num Points )
 
         ID
-        ( Name ID_num )
+        ( Name ID-num )
 
 
         Tables:
         =======
         Student
         ID
-        ( Name ID_num )
+        ( Name ID-num )
 
-        Students_contact
+        Students-contact
         Contact
         ( Name Email )
 
-        Team_leader
+        Team-leader
         ID
-        ( Name ID_num )
+        ( Name ID-num )
 
-        Training_attendance
+        Training-attendance
         Attendance
-        ( ID_num Number_of_present )
+        ( ID-num Number-of-present )
 
-        Training_grade
+        Training-grade
         Grade
-        ( ID_num Points )          
+        ( ID-num Points )          
  
 14. Clear screen
     >```cls```
