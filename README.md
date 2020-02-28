@@ -311,6 +311,15 @@ The following commands are supported to use the RDBMS from command line
         "ID_num" is the attribute from the second table,which we will use to compare it to the first table,
         "Name" is the joining attribute of the first table and
         "Number_of_present" is the joining attribute of the second table.
+
+    *Output:*
+    
+        ( )
+        ( Bemhreth 6 )
+        ( Dibora 5 )
+        ( Elias 5 )
+        ( Kirub 4 )
+
 13. Clear screen
     >```cls```
 14. Exit the program
