@@ -167,15 +167,18 @@ int main()
         }
         else if(result[0]=="database")
         {
-            cout<<"\nlist of relational schemas\n";
+            cout<<"\nRelational Schemas:";
+            cout<<"\n===================\n";
             for (auto const &pair : rschemaMap)
             {
-                std::cout <<  pair.first << "\n";
+                std::cout << rschemaMap.at(pair.first).toString() << "\n\n";
             }
-            cout<<"\nlist of tables\n";
+            cout<<"\nTables:";
+            cout<<"\n=======\n";
             for (auto const &pair : tableMap)
             {
-                std::cout <<  pair.first << "\n";
+                std::cout << pair.first << "\n";
+                std::cout << tableMap.at(pair.first).get_tableRSchema().toString() << "\n\n";
             }
         }
         else if (result[0] == "union")
