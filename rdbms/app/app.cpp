@@ -20,7 +20,7 @@ int main()
     map<std::string, table> tableMap;
     map<std::string, rSchema> rschemaMap;
     system("clear");
-    cout << "enter the comand separating it with a comma\n";
+    cout << "enter the comand separating it with a single space\n";
     do
     {
         cout << ">>  ";
