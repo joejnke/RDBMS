@@ -20,42 +20,45 @@ int main()
     map<std::string, table> tableMap;
     map<std::string, rSchema> rschemaMap;
     system("clear");
-    cout << "enter the comand separating it with a comma\n";
+    cout << "enter the comand separating it with a single space\n";
     do
     {
         cout << ">>  ";
-        cin >> datainput;
-        boost::split(result, datainput, boost::is_any_of(","));
+        getline(cin, datainput);
+        boost::trim(datainput);
+        boost::split(result, datainput, boost::is_any_of(" "));
         boost::algorithm::to_lower(result[0]);
         if (result[0] == "create")
         {
-            boost::algorithm::to_lower(result[1]);
             if (result.size() <= 1)
             {
                 cout << "error: you have to specify what you want to do\n";
             }
-            else if (result[1] == "table")
+            else
             {
-                if (result.size() <= 2)
+                boost::algorithm::to_lower(result[1]);
+                if (result[1] == "table")
                 {
-                    cout << "error: no relational schema name\n";
-                }
-                else
-                {
-                    if (result.size() <= 3)
-                        cout << "error: no table name inserted\n";
+                    if (result.size() <= 2)
+                    {
+                        cout << "error: no relational schema name\n";
+                    }
                     else
                     {
-                        if (rschemaMap.find(result[3]) == rschemaMap.end())
-                            cout << "error: the relational schema doesnt exist\n";
+                        if (result.size() <= 3)
+                            cout << "error: no table name inserted\n";
                         else
                         {
-                            tableMap.emplace(result[2], table(rschemaMap.at(result[3])));
-                            cout << result[2] << " table created\n";
-                            result.clear();
+                            if (rschemaMap.find(result[3]) == rschemaMap.end())
+                                cout << "error: the relational schema doesnt exist\n";
+                            else
+                            {
+                                tableMap.emplace(result[2], table(rschemaMap.at(result[3])));
+                                cout << result[2] << " table created\n";
+                                result.clear();
+                            }
                         }
                     }
-                }
             }
             else if (result[1] == "rschema")
             {
@@ -76,6 +79,7 @@ int main()
             {
                 cout << "error: unknown comand\n";
             }
+        }
         }
         else if (result[0] == "insert")
         {
