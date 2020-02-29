@@ -114,65 +114,65 @@ Note the two relations should have common attributes
 The following commands are supported to use the RDBMS from command line
 
  1. Create a relational schema with the specified name and attributes list
-    >```create,rschema,<rschema name>,<list of column names>```
+    >```create rschema <rschema name> <list of column names>```
 
-    >e.g: ```create,rschema,ID,Name,ID-num```    
+    >e.g: ```create rschema ID Name ID-num```    
     where ```ID``` is rschema name and ```Name,ID-num``` is list of column names.
         
     **more examples**:
         
-        create,rschema,Attendance,ID-num,Number-of-present
-        create,rschema,Contact,Name,Email
-        create,rschema,Grade,ID-num,Points
+        create rschema Attendance ID-num Number-of-present
+        create rschema Contact Name Email
+        create rschema Grade ID-num Points
 
 2. Create an empty table with a given table name and table specification (i.e. relational schema)
-    >```create,table,<table name>,<name of rschema>```
+    >```create table <table name> <name of rschema>```
 
-    >e.g: ```create,table,Student,ID```    
+    >e.g: ```create table Student ID```    
     where ```Student``` is the table name and ```ID``` is the name of the relational schema instance to use as specification for the table.
             
     **more examples**:
         
-        create,table,Training-attendance,Attendance
-        create,table,Training-grade,Grade
-        create,table,Students-contact,Contact
-        create,table,Team-leader,ID
+        create table Training-attendance Attendance
+        create table Training-grade Grade
+        create table Students-contact Contact
+        create table Team-leader ID
 
 3. Insert a row into an existing table
-    >```insert,<table name>,<row to insert>```
+    >```insert <table name> <row to insert>```
 
-    >e.g: ```insert,Student,Kirub,G1T31```    
+    >e.g: ```insert Student Kirub G1T31```    
     where ```Student``` is the table name to insert into and ```Kirub,G1T31``` is the data to be inserted into the Attendance table.    
     
     **more examples**:
                 
-        insert,Student,Elias,G1T32 
-        insert,Student,Bemhreth,G1T33
-        insert,Student,Dibora,G1T34
+        insert Student Elias G1T32 
+        insert Student Bemhreth G1T33
+        insert Student Dibora G1T34
         
-        insert,Training-attendance,G1T31,4 
-        insert,Training-attendance,G1T32,5 
-        insert,Training-attendance,G1T33,6
-        insert,Training-attendance,G1T34,5
+        insert Training-attendance G1T31 4 
+        insert Training-attendance G1T32 5 
+        insert Training-attendance G1T33 6
+        insert Training-attendance G1T34 5
         
-        insert,Training-grade,G1T31,18.5 
-        insert,Training-grade,G1T32,19.5
-        insert,Training-grade,G1T33,19
-        insert,Training-grade,G1T34,20
+        insert Training-grade G1T31 18.5 
+        insert Training-grade G1T32 19.5
+        insert Training-grade G1T33 19
+        insert Training-grade G1T34 20
 
-        insert,Students-contact,Kirub,joejnke@gmail.com 
-        insert,Students-contact,Elias,tsegawelias@gmail.com
-        insert,Students-contact,Bemhreth,bemhretgezahegn@gmail.com
-        insert,Students-contact,Dibora,deborahaile3@gmail.com
+        insert Students-contact Kirub joejnke@gmail.com 
+        insert Students-contact Elias tsegawelias@gmail.com
+        insert Students-contact Bemhreth bemhretgezahegn@gmail.com
+        insert Students-contact Dibora deborahaile3@gmail.com
 
-        insert,Team-leader,Elias,G1T32
-        insert,Team-leader,Arsema,G4T34
-        insert,Team-leader,Brook,G2T33
+        insert Team-leader Elias G1T32
+        insert Team-leader Arsema G4T34
+        insert Team-leader Brook G2T33
 
 4. Display data stored in a table
-    >```display,<table name>```
+    >```display <table name>```
 
-    >e.g: ```display,Student```    
+    >e.g: ```display Student```    
     where ```Student``` is name of the table to be displayed.
 
     *Output*:
@@ -186,9 +186,9 @@ The following commands are supported to use the RDBMS from command line
                 
     **more examples**:
         
-        display,Training-attendance
-        display,Training-grade
-        display,Students-contact
+        display Training-attendance
+        display Training-grade
+        display Students-contact
 
     *Outputs with the above command order*:
 
@@ -214,28 +214,28 @@ The following commands are supported to use the RDBMS from command line
         ( Kirub joejnke@gmail.com )
 
 5. Remove a row of data from a table
-    >```remove,row,<table name>,<row to remove>```
+    >```remove row <table name> <row to remove>```
 
-    >e.g: ```remove,row,Student,Kirub,G1T31```    
+    >e.g: ```remove row Student Kirub G1T31```    
     where ```Student``` is name of the table and ```Kirub,25``` is the data to be removed.
 6. Remove or delete an existing table
-    >```remove,table,<table name>```
+    >```remove table <table name>```
 
-    >e.g: ```remove,table,Student```    
+    >e.g: ```remove table Student```    
     where ```Student``` is name of the table to be removed or deleted.
 
     > Note: recreate the "Student" table since we need it later.
     
-        create,table,Student,ID
-        insert,Student,Kirub,G1T31                
-        insert,Student,Elias,G1T32 
-        insert,Student,Bemhreth,G1T33
-        insert,Student,Dibora,G1T34
+        create table Student ID
+        insert Student Kirub G1T31                
+        insert Student Elias G1T32 
+        insert Student Bemhreth G1T33
+        insert Student Dibora G1T34
         
 7. Union of two tables
-    >```union,<first table name>,<second table name>```
+    >```union <first table name> <second table name>```
 
-    >e.g: ```union,Student,Team-leader```    
+    >e.g: ```union Student Team-leader```    
     where ```Student``` is name of the first table and ```Students-contact``` is name of the second table.
 
     *Output:*
@@ -249,9 +249,9 @@ The following commands are supported to use the RDBMS from command line
         ( Kirub G1T31 )
 
 8. Intersection of two tables
-    >```intersect,<first table name>,<second table name>```
+    >```intersect <first table name> <second table name>```
 
-    >e.g: ```intersect,Student,Team-leader```    
+    >e.g: ```intersect Student Team-leader```    
     where ```Student``` is name of the first table and ```Team-leader``` is name of the second table. 
 
     *Output:*
@@ -260,9 +260,9 @@ The following commands are supported to use the RDBMS from command line
         ( Elias G1T32 )
 
 9. Difference of two tables
-    >```difference,<first table name>,<second table name>```
+    >```difference <first table name> <second table name>```
 
-    >e.g: ```difference,Student,Team-leader```    
+    >e.g: ```difference Student Team-leader```    
     where ```Student``` is name of the first table and ```Team-leader``` is name of the second table
 
     *Output:*
@@ -274,9 +274,9 @@ The following commands are supported to use the RDBMS from command line
         ( Kirub G1T31 )
 
 10. Projection of a table on to a list of attributes (i.e. columns)
-    >```project,<table name>,<list of column names>```
+    >```project <table name> <list of column names>```
 
-    >e.g: ```project,Students-contact,Email```    
+    >e.g: ```project Students-contact Email```    
     where ```Students-contact``` is the table name and ```Email``` is columns list with single column names.
     
     *Output:*
@@ -289,7 +289,7 @@ The following commands are supported to use the RDBMS from command line
 
     _More column names can be specified in the columns list_
 11. Select a row from a table with a given value for a column
-    >```select,<table name>,<column name>,<value>```
+    >```select <table name> <column name> <value>```
 
     >e.g: ```select,Training-grade,ID-num,G1T32```    
     where ```Training-grade``` is name of the table to select from, ```ID-num``` is the column used for selection and ```G1T32``` is the value at the selection column.
@@ -300,9 +300,9 @@ The following commands are supported to use the RDBMS from command line
         ( G1T32 19.5 )
 
 12. Natural Join of two tables
-    >```njoin,<table1 name>,<table2 name>,<comp1>,<comp2>,<joining atribute from the 1st table>,<joining atribute from the second table>```
+    >```njoin <table1 name> <table2 name> <comp1> <comp2> <joining atribute from the 1st table> <joining atribute from the second table>```
 
-    >e.g: ```Njoin,Student,Training-attendance,ID-num,ID-num,Name,Number-of-present```    
+    >e.g: ```Njoin Student Training-attendance ID-num ID-num Name Number-of-present```    
     
     where: 
 
